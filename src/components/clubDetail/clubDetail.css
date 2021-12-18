@@ -1,0 +1,47 @@
+.club-detail {
+    width: 65%;
+    float: left;
+    padding: 30px;
+}
+
+.club-book {
+    width: 35%;
+    float: right;
+    padding-left: 60px;
+}
+
+.detail-book-image {
+    height: 100%;
+    max-width: 90%;
+    position: relative;
+    top: 100px;
+    right: 0px;
+}
+
+.detail-club-title {
+    font-family: 'Nanum Gothic';
+    font-weight: 800;
+    font-size: 30px;
+    padding-bottom: 40px;
+}
+
+.detail-club-description {
+    font-family: 'Nanum Gothic';
+    font-weight: 400;
+    font-size: 16px;
+    line-height:190%;
+    padding-bottom: 40px;
+}
+
+.detail-book-title {
+    font-family: 'Nanum Gothic';
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.detail-club-time {
+    font-family: 'Nanum Gothic';
+    font-weight: 400;
+    font-size: 16px;
+}

@@ -1,0 +1,13 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+.club-edit {
+    width: 100%;
+}
+
+.edit-form {
+    max-width: 900px;
+    padding: 20px 45px 30px 45px;
+    font-family: 'Nanum Gothic';
+    font-weight: 400;
+    margin: 0 auto;
+}

@@ -1,0 +1,15 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+.nevbar {
+    font-family: 'Nanum Gothic';
+    margin-bottom: 50px;
+}
+
+.footer {
+    font-family: 'Nanum Gothic';
+    width:100%;
+    height: 50px;
+    padding: 35px 0;
+    font-size: 14px;
+    text-align: center;
+    margin-top: auto;
+}

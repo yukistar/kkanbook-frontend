@@ -1,0 +1,46 @@
+.clubdate {
+    padding-bottom: 10px;
+}
+
+.react-datepicker__day-name {
+    width: 28px;
+}
+
+.date-customheader {
+    background: white;
+}
+
+.normal-day {
+    background: white !important;
+    color: black !important;
+    width: 28px;
+    height: 28px;
+    line-height: 1.8;
+    text-align: center;
+    padding: 2px !important;
+}
+
+.selected-day {
+    background: navy !important;
+    color: white !important;
+    border-radius: 50% !important;
+    font-weight: 700;
+}
+
+.selected-time {
+    background: navy;
+    color: white;
+    font-weight: 700;
+}
+
+.today-day {
+    background: white;
+    color: black;
+    border-radius: 50%;
+}
+
+
+.book-list {
+    font-size: 15px;
+    margin-top: -16px;
+}
