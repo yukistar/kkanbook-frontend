@@ -12,6 +12,11 @@
     padding-left: 10px;
 }
 
+.day-checkbox {
+    padding: 5px;
+    float: left;
+}
+
 .search-container {
     padding-top: 20px;
     width: 250px;
@@ -56,4 +61,20 @@
     color: #575756;
     border: 1px solid #575756;
     height: 35px;
+}
+
+.condition-list {
+    display: flex;
+    position: absolute;
+    top: 110px;
+    font-family: 'Nanum Gothic';
+    font-size: 14px;
+    width: 520px;
+    left: 50%;
+    margin-left: -260px;
+}
+
+.condition-init {
+    color: navy;
+    margin-right: 20px; 
 }
