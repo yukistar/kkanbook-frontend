@@ -14,19 +14,8 @@ const ConditionList = (props) => {
         props.setPickedDays(newPickedDays);
         props.setPickedConditions(newPickedConditions);
     }
-
-    const coditionInit = () => {
-        let cleanPickedDays = Array.from({length: 7}, () => false);
-        let cleanPickedConditions = [];
-        props.setPickedDays(cleanPickedDays);
-        props.setPickedConditions(cleanPickedConditions);
-    }
-
     return (
         <div className="condition-list">
-            <div className="condition-init" onClick={(e) => {e.stopPropagation(); coditionInit();}}>
-                <b>조건 초기화</b>
-            </div>
             {props.pickedConditions && props.pickedConditions.map((item, i) => (
                 <div key={i} style={{ display: "flex"}}>
                     {item}

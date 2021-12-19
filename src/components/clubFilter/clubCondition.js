@@ -2,6 +2,7 @@ import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
+import { GrPowerCycle } from 'react-icons/gr';
 import "./clubFilter.css"
 
 const ClubCondition = (props) => {
@@ -16,6 +17,13 @@ const ClubCondition = (props) => {
             if (daysArr[i]) conditionsArr.push(days[i]);
         }
         props.setPickedConditions(conditionsArr);
+    }
+
+    const coditionInit = () => {
+        let cleanPickedDays = Array.from({length: 7}, () => false);
+        let cleanPickedConditions = [];
+        props.setPickedDays(cleanPickedDays);
+        props.setPickedConditions(cleanPickedConditions);
     }
 
     return (
@@ -69,6 +77,9 @@ const ClubCondition = (props) => {
                         <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
+                <div className="condition-init" onClick={(e) => {e.stopPropagation(); coditionInit();}}>
+                    <GrPowerCycle /> 조건 초기화
+                </div>
         </div>
     )
 }

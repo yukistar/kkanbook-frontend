@@ -1,15 +1,16 @@
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 .club-filter {
-    width: 476px;
+    width: 594px;
     display: flex;
     position: absolute;
     left: 50%;
-    margin-left: -238px;
+    margin-left: -297px;
 }
 
 .club-condition {
     padding-top: 20px;
     padding-left: 10px;
+    display: flex;
 }
 
 .day-checkbox {
@@ -60,7 +61,7 @@
     background-color: white;
     color: #575756;
     border: 1px solid #575756;
-    height: 35px;
+    height: 36px;
 }
 
 .condition-list {
@@ -71,10 +72,14 @@
     font-size: 14px;
     width: 520px;
     left: 50%;
-    margin-left: -260px;
+    margin-left: -290px;
 }
 
 .condition-init {
-    color: navy;
+    font-family: 'Nanum Gothic';
+    font-size: 14px;
+    color: #575756;
+    margin-top: 7px;
     margin-right: 20px; 
+    padding-left: 10px;
 }
