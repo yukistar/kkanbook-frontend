@@ -3,27 +3,20 @@ import ClubPost from "../clubPost/clubPost";
 import ClubGrid from "./clubGrid"
 import "./clubList.css"
 
+import { useSelector } from 'react-redux';
+
 const ClubList = (props) => {
-    const [clubLists, setClubLists] = useState([]);
+    const clubs = useSelector(state => state.clubs);
+
     const [showPopup, setShowPopup] = useState(false);
-
-    function createclub(club, e) {
-        console.log(club); // error
-        e.preventDefault();
-        let clubArr = [...clubLists];
-        clubArr.push(club);
-        setClubLists(clubArr);
-        // togglePopup()
-    }
-
     function togglePopup() {
         setShowPopup(!showPopup);
     }
 
     return (
         <div className="club-list">
-            <ClubPost showPopup={showPopup} togglePopup={togglePopup} clubLists={clubLists} createclub={createclub}/>
-            <ClubGrid clubLists={clubLists} />
+            <ClubPost showPopup={showPopup} togglePopup={togglePopup}/>
+            <ClubGrid clubs={clubs} />
         </div>
     )
 }

@@ -5,20 +5,20 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import "./clubList.css"
 
-const ClubList = (props) => {
+const ClubGrid = (props) => {
     return (
         <div className="club-grid">
             <Container>
                 <Row lg={4}>
-                    {props.clubLists && props.clubLists.map((item, i) => (
+                    {props.clubs && props.clubs.map((item, i) => (
                             <Col key={i}>
                                 <ClubBox 
-                                    clubId={i}
-                                    clubTitle={item[0]}
-                                    clubDescription={item[1].length > 55 ? item[1].substring(0, 55) + "..." : item[1]}
-                                    bookTitle={item[2]}
-                                    clubTime={item[3]}
-                                    bookImage={item[4]}
+                                    clubId={item.id}
+                                    clubTitle={item.clubTitle}
+                                    clubDescription={item.clubDescription.length > 55 ? item.clubDescription.substring(0, 55) + "..." : item.clubDescription}
+                                    bookTitle={item.bookTitle}
+                                    clubTime={item.clubTime}
+                                    bookImage={item.bookImage}
                                 />
                             </Col>
                     ))}
@@ -29,4 +29,4 @@ const ClubList = (props) => {
 }
 
 
-export default ClubList
+export default ClubGrid

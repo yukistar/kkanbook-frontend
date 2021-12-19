@@ -6,6 +6,9 @@ import BookSearch from "../postItem/bookSearch";
 import ClubDate from "../postItem/clubDate";
 import "./clubPost.css"
 
+import { useDispatch } from 'react-redux';
+import { postClub } from "../../actions/index";
+
 const ClubWrite = (props) => {
     const [clubTitle, setClubTitle] = useState("");
     const [clubDescription, setClubDescription] = useState("");
@@ -13,15 +16,23 @@ const ClubWrite = (props) => {
     const [clubTime, setClubTime] = useState(null);
     const [bookImage, setBookImage] = useState("");
 
+    const dispatch = useDispatch();
+  
+    const onCreate = (clubTitle, clubDescription, bookTitle, clubTime, bookImage) => {
+        dispatch(postClub(clubTitle, clubDescription, bookTitle, clubTime, bookImage));
+    }
+
     const handleSubmit = (event) => {
         if (clubTitle === "" || clubDescription === "" || bookTitle === "" || clubTime === null) {
             alert("모든 항목을 다 입력해주세요.");
         } else if (bookImage === "") {
             alert("책 검색 플리즈");
         } else {
-            props.createclub([clubTitle, clubDescription, bookTitle, clubTime, bookImage], event);
+            onCreate(clubTitle, clubDescription, bookTitle, clubTime, bookImage);
+            props.closePopup();
         }
     };
+
 
     return (
         <div className='popup'>
