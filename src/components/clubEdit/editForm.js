@@ -10,6 +10,7 @@ const EditForm = (props) => {
     const [newClubContent, setNewClubContent] = useState("");
     const [newBookTitle, setNewBookTitle] = useState("");
     const [newClubTime, setNewClubTime] = useState(null);
+    const [newBookImage, setNewBookImage] = useState("");
 
     return (
         <div className='edit-form'>
@@ -32,7 +33,10 @@ const EditForm = (props) => {
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                         <Form.Label>📚 독서토론회 도서</Form.Label>
-                        <BookSearch bookTitle={newBookTitle} setBookTitle={setNewBookTitle}/>
+                        <BookSearch 
+                            bookTitle={newBookTitle} setBookTitle={setNewBookTitle}
+                            bookImage={newBookImage} setBookImage={setNewBookImage}
+                        />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                         <Form.Label>📚 독서토론회 시간</Form.Label>

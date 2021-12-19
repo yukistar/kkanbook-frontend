@@ -15,21 +15,39 @@ import Footer from "./components/footer";
 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import rootReducer from './reducers/index';
-const store = createStore(rootReducer);
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+const persistConfig = {
+  key: 'root',
+  storage
+};
+const enhancedReducer = persistReducer(persistConfig, rootReducer);
+
+function configureStore() {
+  const store = createStore(enhancedReducer);
+  const persistor = persistStore(store);
+  return { store, persistor };
+};
+
+const { store, persistor } = configureStore();
 
 ReactDOM.render(
   <BrowserRouter>
     <div className="main-wrapper">
       <Provider store = { store }>
-        <Nevbar />
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/edit" element={<EditPage />} />
-          <Route path="/404" element={<Notfound />} />
-          <Route path="/detail/:id" element={<DetailPage />} />
-        </Routes>
-        <Footer />
+        <PersistGate loading={null} persistor={persistor}>
+          <Nevbar />
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/edit" element={<EditPage />} />
+            <Route path="/404" element={<Notfound />} />
+            <Route path="/detail/:id" element={<DetailPage />} />
+          </Routes>
+          <Footer />
+        </PersistGate>
       </Provider>
     </div>
   </BrowserRouter>, 

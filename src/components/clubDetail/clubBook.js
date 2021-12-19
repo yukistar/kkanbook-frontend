@@ -1,13 +1,17 @@
 import React from "react";
-
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import "./clubDetail.css"
 
 const ClubBook = () => {
+    const clubs = useSelector(state => state.clubs);
+    const { id } = useParams();
+
     return (
         <div className="club-book">
             <img 
                 className="detail-book-image" 
-                src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F1467038" 
+                src={clubs[id].bookImage} 
                 alt="book"
             />
         </div>
