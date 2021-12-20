@@ -7,8 +7,8 @@ import './index.css';
 
 import MainPage from './pages/mainPage'
 import EditPage from './pages/editPage'
-import Notfound from './pages/notfound'
 import DetailPage from './pages/detailPage'
+import Notfound from './pages/notfound'
 
 import Nevbar from "./components/nevbar";
 import Footer from "./components/footer";
@@ -26,8 +26,8 @@ ReactDOM.render(
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/edit/:id" element={<EditPage />} />
-          <Route path="/404" element={<Notfound />} />
           <Route path="/detail/:id" element={<DetailPage />} />
+          <Route path="/404" element={<Notfound />} />
         </Routes>
         <Footer />
       </Provider>

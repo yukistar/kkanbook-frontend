@@ -15,4 +15,3 @@ export const postClub = (clubTitle, clubDescription, bookTitle, clubTime, bookIm
         }
     };
 }
-

@@ -6,7 +6,7 @@ const clubs = (state = INITIAL_STATE, action) => {
         case POST_CLUB:
             return state.concat(action.club);
         default:
-          return state;
+            return state;
       }
 };
 
