@@ -25,7 +25,7 @@ ReactDOM.render(
         <Nevbar />
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/edit" element={<EditPage />} />
+          <Route path="/edit/:id" element={<EditPage />} />
           <Route path="/404" element={<Notfound />} />
           <Route path="/detail/:id" element={<DetailPage />} />
         </Routes>
