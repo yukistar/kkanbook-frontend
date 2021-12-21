@@ -24,6 +24,7 @@ const EditForm = () => {
 
     const clickedEditBtn = () => {
         dispatch(editClub(id, newClubTitle, newClubDescription, newBookTitle, newClubTime, newBookImage));
+        window.location.href = "/detail/" + id;
     }
 
     return (

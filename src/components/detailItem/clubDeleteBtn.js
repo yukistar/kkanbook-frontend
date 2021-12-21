@@ -13,6 +13,7 @@ const ClubDeleteBtn = () => {
 
     const clickedDeleteBtn = () => {
         dispatch(deleteClub(id), [dispatch]);
+        window.location.href = "/";
     }
 
     return (

@@ -29,7 +29,7 @@ const ClubDate = (props) => {
                 showPopperArrow={false}
                 minDate={new Date()}
                 closeOnScroll={true}
-                placeholderText={clubDate}
+                placeholderText={props.clubTime}
                 selected={clubDate}
                 onChange={(date) => {setClubDate(date); seletTime(date);}}
                 customInput={<Form.Control as="textarea" rows={1} style={{width:"250px"}}/>}
