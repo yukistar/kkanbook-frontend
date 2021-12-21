@@ -7,15 +7,24 @@ import BookSearch from "../postItem/bookSearch";
 import ClubDate from "../postItem/clubDate";
 import "./clubEdit.css"
 
-const EditForm = (props) => {
+import { useDispatch } from 'react-redux';
+import { editClub } from "../../actions/index";
+
+const EditForm = () => {
     const { id } = useParams();
     const clubs = useSelector(state => state.clubs);
 
-    const [newClubTitle, setNewClubTitle] = useState(clubs[Number(id)].clubTitle);
-    const [newClubDescription, setNewClubDescription] = useState(clubs[Number(id)].clubDescription);
-    const [newBookTitle, setNewBookTitle] = useState(clubs[Number(id)].bookTitle);
-    const [newClubTime, setNewClubTime] = useState(clubs[Number(id)].clubTime);
-    const [newBookImage, setNewBookImage] = useState(clubs[Number(id)].bookImage);
+    const [newClubTitle, setNewClubTitle] = useState(clubs[id].clubTitle);
+    const [newClubDescription, setNewClubDescription] = useState(clubs[id].clubDescription);
+    const [newBookTitle, setNewBookTitle] = useState(clubs[id].bookTitle);
+    const [newClubTime, setNewClubTime] = useState(clubs[id].clubTime);
+    const [newBookImage, setNewBookImage] = useState(clubs[id].bookImage);
+
+    const dispatch = useDispatch();
+
+    const clickedEditBtn = () => {
+        dispatch(editClub(id, newClubTitle, newClubDescription, newBookTitle, newClubTime, newBookImage));
+    }
 
     return (
         <div className='edit-form'>
@@ -49,6 +58,7 @@ const EditForm = (props) => {
                     </Form.Group>
                     <Button
                         variant="outline-secondary"
+                        onClick={clickedEditBtn}
                     >Submit</Button>
                 </Form>
         </div>

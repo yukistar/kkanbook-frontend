@@ -7,7 +7,7 @@ import ClubDate from "../postItem/clubDate";
 import "./clubPost.css"
 
 import { useDispatch } from 'react-redux';
-import { postClub } from "../../actions/index";
+import { addClub } from "../../actions/index";
 
 const ClubWrite = (props) => {
     const [clubTitle, setClubTitle] = useState("");
@@ -19,7 +19,7 @@ const ClubWrite = (props) => {
     const dispatch = useDispatch();
   
     const onCreate = (clubTitle, clubDescription, bookTitle, clubTime, bookImage) => {
-        dispatch(postClub(clubTitle, clubDescription, bookTitle, clubTime, bookImage));
+        dispatch(addClub(clubTitle, clubDescription, bookTitle, clubTime, bookImage));
     }
 
     const handleSubmit = (event) => {

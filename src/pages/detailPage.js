@@ -1,9 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom"
 import { useSelector } from 'react-redux';
-
 import ClubDetail from "../components/clubDetail/clubDetail";
 import CountDown from "../components/detailItem/countDown";
+import ClubDeleteBtn from "../components/detailItem/clubDeleteBtn";
+import ClubEditBtn from "../components/detailItem/clubEditBtn";
 
 const DetailPage = () => {
     const { id } = useParams();
@@ -26,6 +27,8 @@ const DetailPage = () => {
         <div style={{maxWidth: "1050px", margin: "0 auto", display: "flex", flexDirection: "column"}}>
             <ClubDetail id={id} />
             <CountDown hoursMinSecs={hoursMinSecs}/>
+            <ClubDeleteBtn />
+            <ClubEditBtn />
         </div>
     )
 }
