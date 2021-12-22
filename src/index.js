@@ -35,23 +35,23 @@ function configureStore() {
 
 const { store, persistor } = configureStore();
 
-
 ReactDOM.render(
-  <BrowserRouter>
-    <div className="main-wrapper">
-      <Provider store = { store }>
-        <PersistGate loading={null} persistor={persistor}>
-          <Nevbar />
+  <div className="main-wrapper">
+    <Provider store = { store }>
+      <PersistGate loading={null} persistor={persistor}>
+        <Nevbar />
+        <BrowserRouter>
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/404" element={<Notfound />} />
             <Route path="/detail/:id" element={<DetailPage />} />
             <Route path="/edit/:id" element={<EditPage />} />
           </Routes>
-          <Footer />
-        </PersistGate>
-      </Provider>
-    </div>
-  </BrowserRouter>, 
+        </BrowserRouter>
+        <Footer />
+      </PersistGate>
+    </Provider>
+  </div>, 
+
   document.getElementById('root')
 );

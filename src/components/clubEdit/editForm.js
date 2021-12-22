@@ -33,7 +33,7 @@ const EditForm = () => {
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                         <Form.Label>📚 독서토론회 제목</Form.Label>
                         <Form.Control 
-                            as="textarea" rows={1}
+                            as="textarea" rows={1} className="system-font"
                             value={newClubTitle}
                             onChange={e => setNewClubTitle(e.target.value)}
                         />
@@ -41,7 +41,7 @@ const EditForm = () => {
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                         <Form.Label>📚 독서토론회 소개</Form.Label>
                         <Form.Control
-                            as="textarea" rows={5}
+                            as="textarea" rows={5} className="system-font"
                             value={newClubDescription}
                             onChange={e => setNewClubDescription(e.target.value)}
                         />

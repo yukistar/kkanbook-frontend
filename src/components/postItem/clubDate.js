@@ -32,7 +32,7 @@ const ClubDate = (props) => {
                 placeholderText={props.clubTime}
                 selected={clubDate}
                 onChange={(date) => {setClubDate(date); seletTime(date);}}
-                customInput={<Form.Control as="textarea" rows={1} style={{width:"250px"}}/>}
+                customInput={<Form.Control className="system-font" as="textarea" rows={1} style={{width:"250px"}}/>}
                 dayClassName={(d) =>
                     getDate(d) === getDate(clubDate) && getMonth(d) === getMonth(clubDate)
                         ? 'normal-day selected-day'

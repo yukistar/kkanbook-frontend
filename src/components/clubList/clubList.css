@@ -1,5 +1,3 @@
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
 .club-list {
     max-width: 1050px;
     margin: 0 auto;
@@ -16,6 +14,7 @@
 
 .card-box {
     margin: 0 auto;
+    width: 15rem;
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
     -webkit-transition-duration: 0.3s;
@@ -38,7 +37,6 @@
 }
 
 .club-title {
-    font-family: 'Nanum Gothic';
     font-weight: 800;
     font-size: 18px;
     text-align: center;
@@ -46,21 +44,26 @@
 }
 
 .club-description {
-    font-family: 'Nanum Gothic';
     font-weight: 400;
     font-size: 14px;
     height: 65px;
 }
 
 .book-title {
-    font-family: 'Nanum Gothic';
     font-weight: 400;
     font-size: 13px;
     margin-bottom: 5px;
 }
 
 .club-time {
-    font-family: 'Nanum Gothic';
     font-weight: 400;
     font-size: 13px;
+}
+
+@media (width <= 1000px) {
+    .card-box { width: 13rem; }
+    .book-image { height: 150px; }
+    .club-description {
+        overflow: hidden;
+    }
 }

@@ -13,7 +13,7 @@ const ClubBox = (props) => {
 
     return (
         <div className="club-box nanumgothic">
-            <Card style={{ width: '15rem' }} className="card-box" onClick={onBoxClick}>
+            <Card className="card-box" onClick={onBoxClick}>
                 <Card.Img className="book-image" variant="top" src={props.bookImage} />
                 <Card.Body>
                     <Card.Title className="club-title">{props.clubTitle}</Card.Title>
