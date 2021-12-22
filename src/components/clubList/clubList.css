@@ -14,6 +14,7 @@
 
 .card-box {
     margin: 0 auto;
+    width: 15rem;
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
     -webkit-transition-duration: 0.3s;
@@ -57,4 +58,12 @@
 .club-time {
     font-weight: 400;
     font-size: 13px;
+}
+
+@media (width <= 1000px) {
+    .card-box { width: 13rem; }
+    .book-image { height: 150px; }
+    .club-description {
+        overflow: hidden;
+    }
 }

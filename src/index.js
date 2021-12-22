@@ -12,17 +12,17 @@ import Nevbar from "./components/nevbar";
 import Footer from "./components/footer";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <div className="main-wrapper">
-      <Nevbar />
+  <div className="main-wrapper">
+    <Nevbar />
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/edit" element={<EditPage />} />
         <Route path="/404" element={<Notfound />} />
         <Route path="/detail/:id" element={<DetailPage />} />
       </Routes>
-      <Footer />
-    </div>
-  </BrowserRouter>, 
+    </BrowserRouter>
+    <Footer />
+  </div>,
   document.getElementById('root')
 );

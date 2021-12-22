@@ -1,14 +1,14 @@
 .club-filter {
-    width: 594px;
+    width: 590px;
     display: flex;
     position: absolute;
     left: 50%;
-    margin-left: -297px;
+    margin-left: -290px;
 }
 
 .club-condition {
     padding-top: 20px;
-    padding-left: 10px;
+    padding-left: 30px;
     display: flex;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .search-input {
-    width: 100%;
+    width: 108%;
     height: 88%;
     padding: 12px 24px;
 
@@ -69,13 +69,27 @@
     font-size: 14px;
     width: 520px;
     left: 50%;
-    margin-left: -290px;
+    margin-left: -280px;
 }
 
 .condition-init {
     font-size: 14px;
     color: #575756;
     margin-top: 7px;
-    margin-right: 20px; 
     padding-left: 10px;
+}
+
+@media (width <= 650px) {
+    .club-filter {
+        width: 450px;
+        margin-left: -225px;
+    }
+    .search-container {
+        padding-top: 20px;
+        width: 235px;
+    }
+    .condition-init {
+        display: none;
+    }
+    
 }
