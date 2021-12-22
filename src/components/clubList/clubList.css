@@ -1,5 +1,3 @@
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
 .club-list {
     max-width: 1050px;
     margin: 0 auto;
@@ -38,7 +36,6 @@
 }
 
 .club-title {
-    font-family: 'Nanum Gothic';
     font-weight: 800;
     font-size: 18px;
     text-align: center;
@@ -46,21 +43,18 @@
 }
 
 .club-description {
-    font-family: 'Nanum Gothic';
     font-weight: 400;
     font-size: 14px;
     height: 65px;
 }
 
 .book-title {
-    font-family: 'Nanum Gothic';
     font-weight: 400;
     font-size: 13px;
     margin-bottom: 5px;
 }
 
 .club-time {
-    font-family: 'Nanum Gothic';
     font-weight: 400;
     font-size: 13px;
 }

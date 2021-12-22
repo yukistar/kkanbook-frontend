@@ -19,14 +19,12 @@
 }
 
 .detail-club-title {
-    font-family: 'Nanum Gothic';
     font-weight: 800;
     font-size: 30px;
     padding-bottom: 40px;
 }
 
 .detail-club-description {
-    font-family: 'Nanum Gothic';
     font-weight: 400;
     font-size: 16px;
     line-height:190%;
@@ -34,14 +32,12 @@
 }
 
 .detail-book-title {
-    font-family: 'Nanum Gothic';
     font-weight: 400;
     font-size: 16px;
     margin-bottom: 5px;
 }
 
 .detail-club-time {
-    font-family: 'Nanum Gothic';
     font-weight: 400;
     font-size: 16px;
 }
