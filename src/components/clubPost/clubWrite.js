@@ -31,7 +31,7 @@ const ClubWrite = (props) => {
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                         <Form.Label>📚 독서토론회 제목</Form.Label>
                         <Form.Control 
-                            as="textarea" rows={1}
+                            as="textarea" rows={1} className="system-font"
                             value={clubTitle}
                             onChange={e => setClubTitle(e.target.value)}
                         />
@@ -39,14 +39,14 @@ const ClubWrite = (props) => {
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                         <Form.Label>📚 독서토론회 소개</Form.Label>
                         <Form.Control
-                            as="textarea" rows={5}
+                            as="textarea" rows={5} className="system-font"
                             value={clubDescription}
                             onChange={e => setClubDescription(e.target.value)}
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                         <Form.Label>📚 독서토론회 도서</Form.Label>
-                        <BookSearch 
+                        <BookSearch
                             bookTitle={bookTitle} setBookTitle={setBookTitle}
                             bookImage={bookImage} setBookImage={setBookImage}
                         />

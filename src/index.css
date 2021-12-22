@@ -12,3 +12,8 @@ html, body {
   display: flex;
   flex-direction: column;
 }
+
+.system-font {
+  font-family : 'AppleSDGothicNeo-Regular','Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif;
+  color: #575756;
+}

@@ -42,7 +42,7 @@ const BookSearch = (props) => {
         <div className="book-search">
             <InputGroup className="mb-3">
                 <Form.Control
-                    as="textarea" rows={1}
+                    as="textarea" rows={1} className="system-font"
                     value={props.bookTitle}
                     onChange={e => props.setBookTitle(e.target.value)}
                 />
