@@ -11,7 +11,7 @@ const BookSearch = (props) => {
     const [showBookList, setShowBookList] = useState(false);
     const [searchBookList, setSearchBookList] = useState([]);
 
-    const search = (keyword) => {
+    const kakao = (keyword) => {
         return axios.create({
             baseURL: "https://dapi.kakao.com/v3/search/book?target=title",
             headers: { Authorization: kakaoKey },
@@ -21,14 +21,14 @@ const BookSearch = (props) => {
 
     async function bookSearch () {
         try {
-            const res = await search(props.bookTitle).get();
+            const kakaoRes = await kakao(props.bookTitle).get();
             const resList = []
-            for (let i = 0; i < res.data.documents.length; i++) {
+            for (let i = 0; i < kakaoRes.data.documents.length; i++) {
                 resList.push([
-                    res.data.documents[i].title,
-                    res.data.documents[i].authors[0],
-                    res.data.documents[i].publisher,
-                    res.data.documents[i].thumbnail
+                    kakaoRes.data.documents[i].title,
+                    kakaoRes.data.documents[i].authors[0],
+                    kakaoRes.data.documents[i].publisher,
+                    kakaoRes.data.documents[i].thumbnail
                 ])
             }
             setSearchBookList(resList);
@@ -56,6 +56,7 @@ const BookSearch = (props) => {
                     searchBookList={searchBookList}
                     setBookTitle={props.setBookTitle} 
                     setBookImage={props.setBookImage}
+                    setBookKdc={props.setBookKdc}
                     setShowBookList={setShowBookList}
                 /> 
                 : null}

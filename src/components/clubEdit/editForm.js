@@ -19,11 +19,12 @@ const EditForm = () => {
     const [newBookTitle, setNewBookTitle] = useState(clubs[id].bookTitle);
     const [newClubTime, setNewClubTime] = useState(clubs[id].clubTime);
     const [newBookImage, setNewBookImage] = useState(clubs[id].bookImage);
+    const [newBookKdc, setNewBookKdc] = useState(clubs[id].bookKdc);
 
     const dispatch = useDispatch();
 
     const clickedEditBtn = () => {
-        dispatch(editClub(id, newClubTitle, newClubDescription, newBookTitle, newClubTime, newBookImage));
+        dispatch(editClub(id, newClubTitle, newClubDescription, newBookTitle, newClubTime, newBookImage, newBookKdc));
         window.location.href = "/detail/" + id;
     }
 
@@ -51,6 +52,7 @@ const EditForm = () => {
                         <BookSearch 
                             bookTitle={newBookTitle} setBookTitle={setNewBookTitle}
                             bookImage={newBookImage} setBookImage={setNewBookImage}
+                            bookKdc={newBookKdc} setBookKdc={setNewBookKdc}
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">

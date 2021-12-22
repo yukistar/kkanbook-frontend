@@ -15,11 +15,12 @@ const ClubWrite = (props) => {
     const [bookTitle, setBookTitle] = useState("");
     const [clubTime, setClubTime] = useState(null);
     const [bookImage, setBookImage] = useState("");
+    const [bookKdc, setBookKdc] = useState("");
 
     const dispatch = useDispatch();
   
-    const onCreate = (clubTitle, clubDescription, bookTitle, clubTime, bookImage) => {
-        dispatch(addClub(clubTitle, clubDescription, bookTitle, clubTime, bookImage));
+    const onCreate = (clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKdc) => {
+        dispatch(addClub(clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKdc));
     }
 
     const handleSubmit = (event) => {
@@ -28,7 +29,7 @@ const ClubWrite = (props) => {
         } else if (bookImage === "") {
             alert("책 검색 플리즈");
         } else {
-            onCreate(clubTitle, clubDescription, bookTitle, clubTime, bookImage);
+            onCreate(clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKdc);
             props.closePopup();
         }
     };
@@ -60,6 +61,7 @@ const ClubWrite = (props) => {
                         <BookSearch
                             bookTitle={bookTitle} setBookTitle={setBookTitle}
                             bookImage={bookImage} setBookImage={setBookImage}
+                            bookKdc={bookKdc} setBookKdc={setBookKdc}
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">

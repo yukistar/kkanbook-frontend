@@ -4,7 +4,7 @@ export const EDIT_CLUB = 'EDIT_CLUB';
 
 let nextId = Math.floor(Math.random() * 10000000);
 
-export const addClub = (clubTitle, clubDescription, bookTitle, clubTime, bookImage) => {
+export const addClub = (clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKdc) => {
     return {
         type: ADD_CLUB,
         clubId: nextId++,
@@ -13,7 +13,8 @@ export const addClub = (clubTitle, clubDescription, bookTitle, clubTime, bookIma
             clubDescription,
             bookTitle,
             clubTime,
-            bookImage
+            bookImage,
+            bookKdc
         }
     };
 }
@@ -25,7 +26,7 @@ export const deleteClub = (clubId) => {
     }
 }
 
-export const editClub = (clubId, clubTitle, clubDescription, bookTitle, clubTime, bookImage) => {
+export const editClub = (clubId, clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKdc) => {
     return {
         type: EDIT_CLUB,
         clubId: clubId,
@@ -34,7 +35,8 @@ export const editClub = (clubId, clubTitle, clubDescription, bookTitle, clubTime
             clubDescription,
             bookTitle,
             clubTime,
-            bookImage
+            bookImage,
+            bookKdc
         }
     };
 }
