@@ -20,7 +20,7 @@ const ClubCondition = (props) => {
     }
 
     const coditionInit = () => {
-        let cleanPickedDays = Array.from({length: 7}, () => false);
+        let cleanPickedDays = Array.from({length: 7}, () => true);
         let cleanPickedConditions = [];
         props.setPickedDays(cleanPickedDays);
         props.setPickedConditions(cleanPickedConditions);

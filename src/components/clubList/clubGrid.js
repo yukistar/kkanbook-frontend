@@ -6,11 +6,14 @@ import Col from 'react-bootstrap/Col'
 import "./clubList.css"
 
 const ClubList = (props) => {
+    let days = ["월", "화", "수", "목", "금", "토", "일"];
+
     return (
         <div className="club-grid">
             <Container>
                 <Row lg={4}>
                     {props.clubs && Object.entries(props.clubs).map(([key, value]) => (
+                        props.pickedDays[days.indexOf(value.clubTime[12])] ?
                         <Col key={key}>
                             <ClubBox 
                                 clubId={key}
@@ -21,6 +24,7 @@ const ClubList = (props) => {
                                 bookImage={value.bookImage}
                             />
                         </Col>
+                        : null
                     ))}
                 </Row>
             </Container>

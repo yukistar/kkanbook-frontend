@@ -16,7 +16,7 @@ const ClubList = (props) => {
     return (
         <div className="club-list">
             <ClubPost showPopup={showPopup} togglePopup={togglePopup}/>
-            <ClubGrid clubs={clubs} />
+            <ClubGrid clubs={clubs} pickedDays={props.pickedDays}/>
         </div>
     )
 }

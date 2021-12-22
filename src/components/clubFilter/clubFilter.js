@@ -4,8 +4,7 @@ import ClubCondition from "./clubCondition";
 import ConditionList from "./conditionList";
 import "./clubFilter.css"
 
-const ClubFilter = () => {
-    const [pickedDays, setPickedDays] = useState(Array.from({length: 7}, () => false));
+const ClubFilter = (props) => {
     const [pickedConditions, setPickedConditions] = useState([]);
 
     return (
@@ -13,12 +12,12 @@ const ClubFilter = () => {
             <div className="club-filter">
                 <ClubSearch />
                 <ClubCondition
-                    pickedDays={pickedDays} setPickedDays={setPickedDays}
+                    pickedDays={props.pickedDays} setPickedDays={props.setPickedDays}
                     pickedConditions={pickedConditions} setPickedConditions={setPickedConditions}
                 />
             </div>
             <ConditionList 
-                pickedDays={pickedDays} setPickedDays={setPickedDays}
+                pickedDays={props.pickedDays} setPickedDays={props.setPickedDays}
                 pickedConditions={pickedConditions} setPickedConditions={setPickedConditions}
             />
         </div>
