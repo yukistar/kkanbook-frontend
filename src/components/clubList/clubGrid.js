@@ -7,13 +7,14 @@ import "./clubList.css"
 
 const ClubList = (props) => {
     let days = ["월", "화", "수", "목", "금", "토", "일"];
+    let kdcs = ["총류", "철학", "종교", "사회과학", "순수과학", "기술과학", "예술", "언어", "문학", "역사"];
 
     return (
         <div className="club-grid">
             <Container>
                 <Row lg={4}>
                     {props.clubs && Object.entries(props.clubs).map(([key, value]) => (
-                        props.pickedDays[days.indexOf(value.clubTime[12])] ?
+                        props.pickedDays[days.indexOf(value.clubTime[12])] && props.pickedKdcs[kdcs.indexOf(value.bookKdc)]?
                         <Col key={key}>
                             <ClubBox 
                                 clubId={key}

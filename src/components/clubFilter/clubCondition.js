@@ -7,23 +7,23 @@ import "./clubFilter.css"
 
 const ClubCondition = (props) => {
     const handleCheckDays = (e) => {
-        let days = ["월", "화", "수", "목", "금", "토", "일"];
         let daysArr = [...props.pickedDays];
         daysArr[Number(e.target.id)] = !daysArr[Number(e.target.id)];
         props.setPickedDays(daysArr);
+    }
 
-        let conditionsArr = [];
-        for (let i = 0; i < 7; i++) {
-            if (daysArr[i]) conditionsArr.push(days[i]);
-        }
-        props.setPickedConditions(conditionsArr);
+    const handleCheckKdcs = (e) => {
+        let kdcsArr = [...props.pickedKdcs];
+        kdcsArr[Number(e.target.id)] = !kdcsArr[Number(e.target.id)];
+        props.setPickedKdcs(kdcsArr);
     }
 
     const coditionInit = () => {
         let cleanPickedDays = Array.from({length: 7}, () => true);
-        let cleanPickedConditions = [];
+        let cleanPickedKdcs = Array.from({length: 10}, () => true);
+
         props.setPickedDays(cleanPickedDays);
-        props.setPickedConditions(cleanPickedConditions);
+        props.setPickedKdcs(cleanPickedKdcs);
     }
 
     return (
@@ -73,8 +73,58 @@ const ClubCondition = (props) => {
                 <Dropdown as={ButtonGroup} size="sm" style={{ paddingLeft: "10px" }}>
                     <Dropdown.Toggle id="dropdown-title">책 분류 선택 </Dropdown.Toggle>
                     <Dropdown.Menu className="dropdown-title">
-                        <Dropdown.Item eventKey="1">Action</Dropdown.Item>
-                        <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+                        <Form className="day-checkbox">
+                            <Form.Check 
+                                type='checkbox' id='0' label='총류'
+                                checked={props.pickedKdcs[0]}
+                                onChange={handleCheckKdcs}
+                            />
+                            <Form.Check 
+                                type='checkbox' id='1' label='철학'
+                                checked={props.pickedKdcs[1]}
+                                onChange={handleCheckKdcs}
+                            />
+                            <Form.Check 
+                                type='checkbox' id='2' label='종교'
+                                checked={props.pickedKdcs[2]}
+                                onChange={handleCheckKdcs}
+                            />
+                            <Form.Check 
+                                type='checkbox' id='3' label='사회과학'
+                                checked={props.pickedKdcs[3]}
+                                onChange={handleCheckKdcs}
+                            />
+                            <Form.Check 
+                                type='checkbox' id='4' label='순수과학'
+                                checked={props.pickedKdcs[4]}
+                                onChange={handleCheckKdcs}
+                            />
+                            <Form.Check 
+                                type='checkbox' id='5' label='기술과학'
+                                checked={props.pickedKdcs[5]}
+                                onChange={handleCheckKdcs}
+                            />
+                            <Form.Check 
+                                type='checkbox' id='6' label='예술'
+                                checked={props.pickedKdcs[6]}
+                                onChange={handleCheckKdcs}
+                            />
+                            <Form.Check 
+                                type='checkbox' id='7' label='언어'
+                                checked={props.pickedKdcs[7]}
+                                onChange={handleCheckKdcs}
+                            />
+                            <Form.Check 
+                                type='checkbox' id='8' label='문학'
+                                checked={props.pickedKdcs[8]}
+                                onChange={handleCheckKdcs}
+                            />
+                            <Form.Check 
+                                type='checkbox' id='9' label='역사'
+                                checked={props.pickedKdcs[9]}
+                                onChange={handleCheckKdcs}
+                            />
+                        </Form>
                     </Dropdown.Menu>
                 </Dropdown>
                 <div className="condition-init" onClick={(e) => {e.stopPropagation(); coditionInit();}}>

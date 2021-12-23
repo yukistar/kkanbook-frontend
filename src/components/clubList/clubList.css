@@ -53,6 +53,8 @@
     font-weight: 400;
     font-size: 13px;
     margin-bottom: 5px;
+    overflow: hidden;
+    height: 17px;
 }
 
 .club-time {
