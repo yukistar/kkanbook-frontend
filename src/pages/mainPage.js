@@ -4,7 +4,7 @@ import ClubList from "../components/clubList/clubList";
 
 const MainPage = () => {
     const [pickedDays, setPickedDays] = useState(Array.from({length: 7}, () => true));
-    const [pickedKdcs, setPickedKdcs] = useState(Array.from({length: 10}, () => true));
+    const [pickedKdcs, setPickedKdcs] = useState(Array.from({length: 11}, () => true));
 
     return (
         <div className="main-page">
