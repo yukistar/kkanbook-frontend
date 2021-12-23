@@ -1,5 +1,5 @@
 export const INITIAL_STATE = {
-    0 : {
+    club0 : {
         clubTitle: '뭔일이슈-커넥트', 
         clubDescription: '포털과 신문, TV를 통해 뉴스를 소비하는 데서 그치지 않고, 적극적으로 아티클을 찾고 책을 선정해 함께 읽고 의견을 나눠봅시다.',
         bookTitle: '자본주의 대전환',

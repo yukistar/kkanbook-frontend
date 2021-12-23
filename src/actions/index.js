@@ -7,7 +7,7 @@ let nextId = Math.floor(Math.random() * 10000000);
 export const addClub = (clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKdc) => {
     return {
         type: ADD_CLUB,
-        clubId: nextId++,
+        clubId: "club" + String(nextId++),
         club: {
             clubTitle,
             clubDescription,
