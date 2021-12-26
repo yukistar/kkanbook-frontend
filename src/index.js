@@ -9,6 +9,7 @@ import MainPage from './pages/mainPage'
 import EditPage from './pages/editPage'
 import Notfound from './pages/notfound'
 import DetailPage from './pages/detailPage'
+import ChatPage from './pages/chatPage';
 
 import Nevbar from "./components/nevbar";
 import Footer from "./components/footer";
@@ -46,6 +47,7 @@ ReactDOM.render(
             <Route path="/404" element={<Notfound />} />
             <Route path="/detail/:id" element={<DetailPage />} />
             <Route path="/edit/:id" element={<EditPage />} />
+            <Route path="/chat/:id" element={<ChatPage />} />
           </Routes>
         </BrowserRouter>
         <Footer />
