@@ -26,7 +26,8 @@ const ClubList = (props) => {
             <Container>
                 <Row lg={4}>
                     {sortedObj && Object.entries(sortedObj).map(([key, value]) => (
-                        props.pickedDays[days.indexOf(value.clubTime[12])] && props.pickedKdcs[kdcs.indexOf(value.bookKdc)]?
+                        props.pickedDays[days.indexOf(value.clubTime[12])] && props.pickedKdcs[kdcs.indexOf(value.bookKdc)] 
+                        && (value.clubTitle.includes(props.searchKeyword) || value.clubDescription.includes(props.searchKeyword) || value.bookTitle.includes(props.searchKeyword))?
                         <Col key={key}>
                             <ClubBox 
                                 clubId={key}
