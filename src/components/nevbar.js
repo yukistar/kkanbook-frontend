@@ -14,7 +14,7 @@ const Nevbar = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="post">클럽 목록</Nav.Link>
-                            <Nav.Link href="#link">마이페이지</Nav.Link>
+                            <Nav.Link href="login">마이페이지</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

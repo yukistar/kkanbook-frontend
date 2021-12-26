@@ -10,6 +10,8 @@ import EditPage from './pages/editPage'
 import Notfound from './pages/notfound'
 import DetailPage from './pages/detailPage'
 import ChatPage from './pages/chatPage';
+import LoginPage from './pages/loginPage';
+import JoinPage from './pages/joinPage';
 
 import Nevbar from "./components/nevbar";
 import Footer from "./components/footer";
@@ -44,6 +46,8 @@ ReactDOM.render(
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<MainPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/join" element={<JoinPage />} />
             <Route path="/404" element={<Notfound />} />
             <Route path="/detail/:id" element={<DetailPage />} />
             <Route path="/edit/:id" element={<EditPage />} />

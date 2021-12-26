@@ -13,7 +13,7 @@ const ClubSearch = (props) => {
     return (
         <div className="search-container">
             <input 
-                className="search-input"
+                className="search-input system-font"
                 type="text"
                 placeholder="클럽 검색"
                 value={searchKeyword}
