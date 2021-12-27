@@ -19,6 +19,11 @@ const Message = ({ message: { user, text }, name }) => {
       </div>
     </div>
   ) : (
+    user === "admin" ?
+    <div className="message-text admin-text">
+      {text}
+    </div> 
+    :
     <div className="message-container justify-start">
       <div className="message-box background-light">
         <div className="message-text color-dark">

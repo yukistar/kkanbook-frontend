@@ -27,7 +27,15 @@ const JoinPage = () => {
           onClick={(event) =>
             !name || !room ? event.preventDefault() : null
           }
-          to={`/chat?name=${name}&room=${room}`}
+          to={{
+            pathname: "/chat",
+            search: `?name=${name}&room=${room}`,
+            state: {
+              bookImage: clubs[id].bookImage,
+              bookTitle: clubs[id].bookTitle,
+              clubTime: clubs[id].clubTime
+            }
+          }}
         >
           <button
             className="join__button mt-20"

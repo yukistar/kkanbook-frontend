@@ -11,7 +11,7 @@ import '../components/clubChat/clubChat.css'
 
 const ChatPage = ({ location }) => {
   const [name, setName] = useState('')
-  const [room, setRoom] = useState('')
+  const [room, setRoom] = useState(location.state.clubTitle)
   const [message, setMessage] = useState('')
   const [messages, setMessages] = useState([])
   const [users, setUsers] = useState('');
@@ -66,7 +66,12 @@ const ChatPage = ({ location }) => {
           sendMessage={sendMessage}
         />
       </div>
-      <TextContainer users={users}/>
+      <TextContainer 
+        users={users}
+        bookImage={location.state.bookImage}
+        bookTitle={location.state.bookTitle}
+        clubTime={location.state.clubTime}
+      />
     </div>
   )
 }

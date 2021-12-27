@@ -59,3 +59,8 @@
 .background-light {
   background: #f3f3f3;
 }
+
+.admin-text {
+  color: #3535359f;
+  text-align: center;
+}

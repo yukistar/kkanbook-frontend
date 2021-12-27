@@ -65,13 +65,12 @@
   
 .active-container {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     margin-bottom: 50%;
 }
   
 .active-item {
     display: flex;
-    align-items: center;
 }
   
 .chat-inform {
