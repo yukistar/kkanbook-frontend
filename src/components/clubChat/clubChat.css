@@ -1,0 +1,91 @@
+.container-wrapper {
+    display: flex;
+    height: 93vh;
+    margin-bottom: -30px;
+}
+  
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #ffffff;
+    height: 100%;
+    width: 100%;
+}
+
+.info-bar {
+    background: pink;
+    height: 60px;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 25pt;
+}
+  
+.form {
+    display: flex;
+    border-top: 2px solid pink;
+    height: 60px;
+}
+  
+.input {
+    border: none;
+    width: 80%;
+    padding-left: 30px;
+}
+  
+.send-button {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: pink;
+    display: inline-block;
+    border: none;
+    width: 20%;
+    margin-top: -1px;
+}
+  
+.send-button:hover, .send-button:active {
+    background: hotpink;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 60%;
+    justify-content: space-between;
+}
+  
+.book-inform {
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+  
+.active-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50%;
+}
+  
+.active-item {
+    display: flex;
+    align-items: center;
+}
+  
+.chat-inform {
+    font-size: 0.9rem;
+    color: black;
+}
+  
+img { 
+    display: block;
+    margin: 0px auto;
+    margin-bottom: 15px;
+    height: 90%;
+}
+  
+hr {
+    border-top: 0.7px solid rgba(187, 187, 187, 0.384);
+}
