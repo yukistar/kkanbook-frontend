@@ -1,11 +1,74 @@
-import React from "react";
+import React, { useState, useEffect } from 'react'
+import queryString from 'query-string'
+import { socket } from '../properties/socket'
 
-const ChatPage = () => {
-    return (
-        <div className="chat-page">
-            하이
-        </div>
-    )
+import InfoBar from '../components/clubChat/infoBar'
+import Input from '../components/clubChat/input'
+import Messages from '../components/clubChat/messages/messages'
+import TextContainer from '../components/clubChat/textContainer'
+
+import '../components/clubChat/clubChat.css'
+
+const ChatPage = ({ location }) => {
+  const [name, setName] = useState('')
+  const [room, setRoom] = useState('')
+  const [message, setMessage] = useState('')
+  const [messages, setMessages] = useState([])
+  const [users, setUsers] = useState('');
+
+  useEffect(() => {
+    const { name, room } = queryString.parse(location.search)
+
+    setName(name)
+    setRoom(room)
+
+    socket.emit('join', { name, room }, (error) => {
+      if (error) {
+        alert(error)
+      }
+    })
+
+    return () => {
+      socket.disconnect()
+      socket.off()
+    }
+  }, [location.search])
+
+  useEffect(() => {
+    socket.on('message', (message) => {
+      setMessages([...messages, message])
+    })
+
+    socket.on("roomData", ({ users }) => {
+      setUsers(users);
+    })
+  }, [messages])
+
+  const sendMessage = (event) => {
+    event.preventDefault()
+
+    if (message) {
+      socket.emit('sendMessage', message, () =>
+        setMessage('')
+      )
+    }
+    setMessage('')
+  }
+
+  return (
+    <div className="container-wrapper">
+      <div className="chat-container">
+        <InfoBar room={room} />
+        <Messages messages={messages} name={name} />
+        <Input
+          message={message}
+          setMessage={setMessage}
+          sendMessage={sendMessage}
+        />
+      </div>
+      <TextContainer users={users}/>
+    </div>
+  )
 }
 
 export default ChatPage

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
@@ -9,6 +9,7 @@ import MainPage from './pages/mainPage'
 import EditPage from './pages/editPage'
 import Notfound from './pages/notfound'
 import DetailPage from './pages/detailPage'
+import JoinPage from './pages/joinPage'
 import ChatPage from './pages/chatPage';
 
 import Nevbar from "./components/nevbar";
@@ -41,15 +42,14 @@ ReactDOM.render(
     <Provider store = { store }>
       <PersistGate loading={null} persistor={persistor}>
         <Nevbar />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route path="/404" element={<Notfound />} />
-            <Route path="/detail/:id" element={<DetailPage />} />
-            <Route path="/edit/:id" element={<EditPage />} />
-            <Route path="/chat/:id" element={<ChatPage />} />
-          </Routes>
-        </BrowserRouter>
+        <Router>
+          <Route exact path="/" component={MainPage} />
+          <Route path="/404" component={Notfound} />
+          <Route path="/detail/:id" component={DetailPage} />
+          <Route path="/edit/:id" component={EditPage} />
+          <Route path="/join/:id" component={JoinPage} />
+          <Route path="/chat" component={ChatPage} />
+        </Router>
         <Footer />
       </PersistGate>
     </Provider>

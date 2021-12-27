@@ -8,7 +8,7 @@ const ClubChatBtn = () => {
     const { id } = useParams();
 
     const clickedChatBtn = () => {
-        window.location.href = "/chat/" + id;
+        window.location.href = "/join/" + id;
     }
 
     return (
