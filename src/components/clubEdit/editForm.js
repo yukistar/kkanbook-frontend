@@ -1,15 +1,32 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom"
+import { useSelector } from 'react-redux';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import BookSearch from "../postItem/bookSearch";
 import ClubDate from "../postItem/clubDate";
 import "./clubEdit.css"
 
-const EditForm = (props) => {
-    const [newClubTitle, setNewClubTitle] = useState("");
-    const [newClubContent, setNewClubContent] = useState("");
-    const [newBookTitle, setNewBookTitle] = useState("");
-    const [newClubTime, setNewClubTime] = useState(null);
+import { useDispatch } from 'react-redux';
+import { editClub } from "../../actions/index";
+
+const EditForm = () => {
+    const { id } = useParams();
+    const clubs = useSelector(state => state.clubs);
+
+    const [newClubTitle, setNewClubTitle] = useState(clubs[id].clubTitle);
+    const [newClubDescription, setNewClubDescription] = useState(clubs[id].clubDescription);
+    const [newBookTitle, setNewBookTitle] = useState(clubs[id].bookTitle);
+    const [newClubTime, setNewClubTime] = useState(clubs[id].clubTime);
+    const [newBookImage, setNewBookImage] = useState(clubs[id].bookImage);
+    const [newBookKdc, setNewBookKdc] = useState(clubs[id].bookKdc);
+
+    const dispatch = useDispatch();
+
+    const clickedEditBtn = () => {
+        dispatch(editClub(id, newClubTitle, newClubDescription, newBookTitle, newClubTime, newBookImage, newBookKdc));
+        window.location.href = "/detail/" + id;
+    }
 
     return (
         <div className='edit-form'>
@@ -26,13 +43,17 @@ const EditForm = (props) => {
                         <Form.Label>📚 독서토론회 소개</Form.Label>
                         <Form.Control
                             as="textarea" rows={5} className="system-font"
-                            value={newClubContent}
-                            onChange={e => setNewClubContent(e.target.value)}
+                            value={newClubDescription}
+                            onChange={e => setNewClubDescription(e.target.value)}
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                         <Form.Label>📚 독서토론회 도서</Form.Label>
-                        <BookSearch bookTitle={newBookTitle} setBookTitle={setNewBookTitle}/>
+                        <BookSearch 
+                            bookTitle={newBookTitle} setBookTitle={setNewBookTitle}
+                            bookImage={newBookImage} setBookImage={setNewBookImage}
+                            bookKdc={newBookKdc} setBookKdc={setNewBookKdc}
+                        />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                         <Form.Label>📚 독서토론회 시간</Form.Label>
@@ -40,6 +61,7 @@ const EditForm = (props) => {
                     </Form.Group>
                     <Button
                         variant="outline-secondary"
+                        onClick={clickedEditBtn}
                     >Submit</Button>
                 </Form>
         </div>

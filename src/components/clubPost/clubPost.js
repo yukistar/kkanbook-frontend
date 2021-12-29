@@ -8,7 +8,7 @@ const ClubPost = (props) => {
         <div className="club-post">
             <Button variant="outline-secondary" onClick={props.togglePopup} size="lg" className="popup-button">+</Button>
             {props.showPopup ? 
-                <ClubWrite closePopup={props.togglePopup} clubLists={props.clubLists} createclub={props.createclub}/> 
+                <ClubWrite closePopup={props.togglePopup}/> 
                 : null}
         </div>
     )

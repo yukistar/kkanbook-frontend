@@ -31,6 +31,13 @@
     transform: translateY(-8px);
 }
 
+.box-badge {
+    position: absolute;
+    z-index: 1;
+    top: 3px;
+    left: 3px;
+}
+
 .book-image {
     height: 180px;
     object-fit: cover;
@@ -53,6 +60,8 @@
     font-weight: 400;
     font-size: 13px;
     margin-bottom: 5px;
+    overflow: hidden;
+    height: 17px;
 }
 
 .club-time {

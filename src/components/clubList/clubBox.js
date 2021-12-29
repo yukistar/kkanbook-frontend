@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import "./clubList.css"
 import { FaBook, FaCalendarAlt } from 'react-icons/fa';
-
+import Badge from "react-bootstrap/Badge";
 
 const ClubBox = (props) => {
     const [thisClubId] = useState(props.clubId);
@@ -11,9 +11,18 @@ const ClubBox = (props) => {
         e.stopPropagation();
     }
 
+    const now = new Date();
+    const clubStartStr = props.clubTime.substring(0, 10) + " " + props.clubTime.substring(15, 20) + ":00";
+    const clubStartTime = new Date(clubStartStr);
+    const interval = clubStartTime - now;
+
     return (
-        <div className="club-box nanumgothic">
+        <div className="club-box">
             <Card className="card-box" onClick={onBoxClick}>
+                {interval <= 0 ?
+                    <Badge className="box-badge" bg="warning" text="dark" style={{fontSize: 14}}>진행 중</Badge>
+                    : null
+                }
                 <Card.Img className="book-image" variant="top" src={props.bookImage} />
                 <Card.Body>
                     <Card.Title className="club-title">{props.clubTitle}</Card.Title>

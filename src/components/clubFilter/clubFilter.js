@@ -1,26 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import ClubSearch from "./clubSearch";
 import ClubCondition from "./clubCondition";
-import ConditionList from "./conditionList";
 import "./clubFilter.css"
 
-const ClubFilter = () => {
-    const [pickedDays, setPickedDays] = useState(Array.from({length: 7}, () => false));
-    const [pickedConditions, setPickedConditions] = useState([]);
-
+const ClubFilter = (props) => {
     return (
         <div>
             <div className="club-filter">
                 <ClubSearch />
                 <ClubCondition
-                    pickedDays={pickedDays} setPickedDays={setPickedDays}
-                    pickedConditions={pickedConditions} setPickedConditions={setPickedConditions}
+                    pickedDays={props.pickedDays} setPickedDays={props.setPickedDays}
+                    pickedKdcs={props.pickedKdcs} setPickedKdcs={props.setPickedKdcs}
                 />
             </div>
-            <ConditionList 
-                pickedDays={pickedDays} setPickedDays={setPickedDays}
-                pickedConditions={pickedConditions} setPickedConditions={setPickedConditions}
-            />
         </div>
     )
 }

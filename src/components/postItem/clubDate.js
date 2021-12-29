@@ -12,10 +12,10 @@ const ClubDate = (props) => {
     function seletTime(date) {
         let Days = ['일', '월', '화', '수', '목', '금', '토'];
         let Year = getYear(date);
-        let Month = getMonth(date) + 1;
-        let Date = getDate(date);
+        let Month = String(getMonth(date) + 1).length === 2 ? String(getMonth(date) + 1) : "0" + String(getMonth(date) + 1);
+        let Date = String(getDate(date)).length === 2 ? String(getDate(date)) : "0" + String(getDate(date));
         let Day = Days[getDay(date)];
-        let Hour = getHours(date);
+        let Hour = String(getHours(date)).length === 2 ? String(getHours(date)) : "0" + String(getHours(date));
         let Minute = getMinutes(date) === 0 ? "00" : "30";
         // 오브젝트는 전달 안돼서 string으로 변환
         props.setClubTime(String(Year + "." + Month + "." + Date + " (" + Day + ") " + Hour + ":" + Minute))
@@ -29,7 +29,7 @@ const ClubDate = (props) => {
                 showPopperArrow={false}
                 minDate={new Date()}
                 closeOnScroll={true}
-                placeholderText="날짜 선택"
+                placeholderText={props.clubTime}
                 selected={clubDate}
                 onChange={(date) => {setClubDate(date); seletTime(date);}}
                 customInput={<Form.Control className="system-font" as="textarea" rows={1} style={{width:"250px"}}/>}

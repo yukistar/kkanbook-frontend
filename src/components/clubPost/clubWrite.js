@@ -6,12 +6,22 @@ import BookSearch from "../postItem/bookSearch";
 import ClubDate from "../postItem/clubDate";
 import "./clubPost.css"
 
+import { useDispatch } from 'react-redux';
+import { addClub } from "../../actions/index";
+
 const ClubWrite = (props) => {
     const [clubTitle, setClubTitle] = useState("");
     const [clubDescription, setClubDescription] = useState("");
     const [bookTitle, setBookTitle] = useState("");
     const [clubTime, setClubTime] = useState(null);
     const [bookImage, setBookImage] = useState("");
+    const [bookKdc, setBookKdc] = useState("");
+
+    const dispatch = useDispatch();
+  
+    const onCreate = (clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKdc) => {
+        dispatch(addClub(clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKdc));
+    }
 
     const handleSubmit = (event) => {
         if (clubTitle === "" || clubDescription === "" || bookTitle === "" || clubTime === null) {
@@ -19,9 +29,11 @@ const ClubWrite = (props) => {
         } else if (bookImage === "") {
             alert("책 검색 플리즈");
         } else {
-            props.createclub([clubTitle, clubDescription, bookTitle, clubTime, bookImage], event);
+            onCreate(clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKdc);
+            props.closePopup();
         }
     };
+
 
     return (
         <div className='popup'>
@@ -49,6 +61,7 @@ const ClubWrite = (props) => {
                         <BookSearch
                             bookTitle={bookTitle} setBookTitle={setBookTitle}
                             bookImage={bookImage} setBookImage={setBookImage}
+                            bookKdc={bookKdc} setBookKdc={setBookKdc}
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
