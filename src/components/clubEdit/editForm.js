@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 import { useSelector } from 'react-redux';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -12,6 +12,7 @@ import { editClub } from "../../actions/index";
 
 const EditForm = () => {
     const { id } = useParams();
+    const history = useHistory();
     const clubs = useSelector(state => state.clubs);
 
     const [newClubTitle, setNewClubTitle] = useState(clubs[id].clubTitle);
@@ -25,7 +26,7 @@ const EditForm = () => {
 
     const clickedEditBtn = () => {
         dispatch(editClub(id, newClubTitle, newClubDescription, newBookTitle, newClubTime, newBookImage, newBookKdc));
-        window.location.href = "/detail/" + id;
+        history.replace("/detail/" + id);
     }
 
     return (

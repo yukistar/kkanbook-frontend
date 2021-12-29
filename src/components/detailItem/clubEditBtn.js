@@ -1,13 +1,14 @@
 import React from "react";
-import { useParams } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 import Button from "react-bootstrap/Button";
 
 import "./detailItem.css"
 
 const ClubEditBtn = () => {
     const { id } = useParams();
+    const history = useHistory();
     const clickedEditBtn = (e) => {
-        window.location.href = "/edit/" + id;
+        history.push("/edit/" + id);
         e.stopPropagation();
     }
 
