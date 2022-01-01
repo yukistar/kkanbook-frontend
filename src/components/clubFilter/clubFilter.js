@@ -7,7 +7,9 @@ const ClubFilter = (props) => {
     return (
         <div>
             <div className="club-filter">
-                <ClubSearch />
+                <ClubSearch 
+                    searchKeyword={props.searchKeyword} setSearchKeyword={props.setSearchKeyword} 
+                />
                 <ClubCondition
                     pickedDays={props.pickedDays} setPickedDays={props.setPickedDays}
                     pickedKdcs={props.pickedKdcs} setPickedKdcs={props.setPickedKdcs}

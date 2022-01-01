@@ -4,24 +4,23 @@ import Button from "react-bootstrap/Button";
 
 import "./detailItem.css"
 
-const ClubEditBtn = () => {
+const ClubChatBtn = () => {
     const { id } = useParams();
     const history = useHistory();
-    const clickedEditBtn = (e) => {
-        history.push("/edit/" + id);
-        e.stopPropagation();
+
+    const clickedChatBtn = () => {
+        history.push("/join/" + id);
     }
 
     return (
-        <div className="club-edit-btn">
+        <div className="club-chat-btn">
             <Button 
                 variant="outline-secondary"
                 size="sm"
-                className="delete-button"
-                onClick={clickedEditBtn}
-            >수정</Button>
+                onClick={clickedChatBtn}
+            >채팅</Button>
         </div>
     )
 }
 
-export default ClubEditBtn 
+export default ClubChatBtn 

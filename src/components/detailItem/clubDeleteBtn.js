@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 import Button from "react-bootstrap/Button";
 
 import { useDispatch } from 'react-redux';
@@ -9,11 +9,12 @@ import "./detailItem.css"
 
 const ClubDeleteBtn = () => {
     const { id } = useParams();
+    const history = useHistory();
     const dispatch = useDispatch();
 
     const clickedDeleteBtn = () => {
         dispatch(deleteClub(id), [dispatch]);
-        window.location.href = "/";
+        history.replace("/");
     }
 
     return (

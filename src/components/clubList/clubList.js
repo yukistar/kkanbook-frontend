@@ -16,7 +16,10 @@ const ClubList = (props) => {
     return (
         <div className="club-list">
             <ClubPost showPopup={showPopup} togglePopup={togglePopup} />
-            <ClubGrid clubs={clubs} pickedDays={props.pickedDays} pickedKdcs={props.pickedKdcs} />
+            <ClubGrid 
+                clubs={clubs}
+                pickedDays={props.pickedDays} pickedKdcs={props.pickedKdcs} searchKeyword={props.searchKeyword}
+            />
         </div>
     )
 }
