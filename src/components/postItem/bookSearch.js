@@ -19,6 +19,13 @@ const BookSearch = (props) => {
         });
     }
 
+    const handleKeyPress = e => { 
+        if (e.key === 'Enter') {
+            e.preventDefault(); //text에 엔터 막음
+            bookSearch();
+        }
+    };
+
     async function bookSearch () {
         try {
             const kakaoRes = await kakao(props.bookTitle).get();
@@ -45,6 +52,7 @@ const BookSearch = (props) => {
                     as="textarea" rows={1} className="system-font"
                     value={props.bookTitle}
                     onChange={e => props.setBookTitle(e.target.value)}
+                    onKeyPress={handleKeyPress}
                 />
                 <Button 
                     variant="outline-secondary"
