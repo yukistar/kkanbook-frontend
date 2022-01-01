@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./authItem.css"
 
-const LoginForm = () => {
+const SigninForm = () => {
     const [userId, setUserId] = useState("");
     const [userPassword, setUserPassword] = useState("");
 
@@ -33,10 +34,10 @@ const LoginForm = () => {
                 >로그인</Button>
             </Form>
             <div className="a-box">
-                <a href="/join">회원가입</a>
+                <Link to="/signup">회원가입</Link>
             </div>
         </div>
     )
 }
 
-export default LoginForm
+export default SigninForm

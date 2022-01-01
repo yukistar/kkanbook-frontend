@@ -11,8 +11,8 @@ import Notfound from './pages/notfound'
 import DetailPage from './pages/detailPage'
 import JoinPage from './pages/joinPage'
 import ChatPage from './pages/chatPage';
-import LoginPage from './pages/loginPage';
-import JoinPage from './pages/joinPage';
+import SigninPage from './pages/signinPage';
+import SignupPage from './pages/signupPage';
 
 import Nevbar from "./components/nevbar";
 import Footer from "./components/footer";
@@ -47,6 +47,8 @@ ReactDOM.render(
         <Router>
           <Route exact path="/" component={MainPage} />
           <Route path="/404" component={Notfound} />
+          <Route path="/signin" component={SigninPage} />
+          <Route path="/signup" component={SignupPage} />
           <Route path="/detail/:id" component={DetailPage} />
           <Route path="/edit/:id" component={EditPage} />
           <Route path="/join/:id" component={JoinPage} />

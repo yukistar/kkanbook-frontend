@@ -1,14 +1,14 @@
 import React from "react";
-import JoinForm from "./joinFrom";
+import SigninForm from "./signinForm";
 import "./authItem.css"
 
 
-const Join = () => {
+const Signin = () => {
     return (
         <div className='auth'>
-            <JoinForm />
+            <SigninForm />
         </div>
     )
 }
 
-export default Join
+export default Signin

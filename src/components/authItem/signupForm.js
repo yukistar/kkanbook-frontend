@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./authItem.css"
 
-const JoinForm = () => {
+const SignupForm = () => {
     const [userId, setUserId] = useState("");
     const [userPassword, setUserPassword] = useState("");
     const [userName, setUserName] = useState("");
@@ -46,4 +46,4 @@ const JoinForm = () => {
     )
 }
 
-export default JoinForm
+export default SignupForm
