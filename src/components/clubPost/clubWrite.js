@@ -16,6 +16,7 @@ const ClubWrite = (props) => {
     const [clubTime, setClubTime] = useState(null);
     const [bookImage, setBookImage] = useState("");
     const [bookKdc, setBookKdc] = useState("");
+    const [searchCheck, setSearchCheck] = useState(false);
 
     const dispatch = useDispatch();
   
@@ -26,7 +27,7 @@ const ClubWrite = (props) => {
     const handleSubmit = (event) => {
         if (clubTitle === "" || clubDescription === "" || bookTitle === "" || clubTime === null) {
             alert("모든 항목을 다 입력해주세요.");
-        } else if (bookImage === "") {
+        } else if (searchCheck === false) {
             alert("책 검색 플리즈");
         } else {
             onCreate(clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKdc);
@@ -62,6 +63,7 @@ const ClubWrite = (props) => {
                             bookTitle={bookTitle} setBookTitle={setBookTitle}
                             bookImage={bookImage} setBookImage={setBookImage}
                             bookKdc={bookKdc} setBookKdc={setBookKdc}
+                            searchCheck={searchCheck} setSearchCheck={setSearchCheck}
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">

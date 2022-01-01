@@ -43,6 +43,7 @@ const BookSearch = (props) => {
             console.log(error);
         }
         setShowBookList(true);
+        props.setSearchCheck(true);
     }
 
     return (
@@ -51,7 +52,7 @@ const BookSearch = (props) => {
                 <Form.Control
                     as="textarea" rows={1} className="system-font"
                     value={props.bookTitle}
-                    onChange={e => props.setBookTitle(e.target.value)}
+                    onChange={e => {props.setBookTitle(e.target.value); props.setSearchCheck(false)}}
                     onKeyPress={handleKeyPress}
                 />
                 <Button 

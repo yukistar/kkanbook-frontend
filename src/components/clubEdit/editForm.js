@@ -21,12 +21,19 @@ const EditForm = () => {
     const [newClubTime, setNewClubTime] = useState(clubs[id].clubTime);
     const [newBookImage, setNewBookImage] = useState(clubs[id].bookImage);
     const [newBookKdc, setNewBookKdc] = useState(clubs[id].bookKdc);
+    const [newSearchCheck, setNewSearchCheck] = useState(true);
 
     const dispatch = useDispatch();
 
     const clickedEditBtn = () => {
-        dispatch(editClub(id, newClubTitle, newClubDescription, newBookTitle, newClubTime, newBookImage, newBookKdc));
-        history.replace("/detail/" + id);
+        if (newClubTitle === "" || newClubDescription === "" || newBookTitle === "" || newClubTime === null) {
+            alert("모든 항목을 다 입력해주세요.");
+        } else if (newSearchCheck === false) {
+            alert("책 검색 플리즈");
+        } else {
+            dispatch(editClub(id, newClubTitle, newClubDescription, newBookTitle, newClubTime, newBookImage, newBookKdc));
+            history.replace("/detail/" + id);
+        }
     }
 
     return (
@@ -54,6 +61,7 @@ const EditForm = () => {
                             bookTitle={newBookTitle} setBookTitle={setNewBookTitle}
                             bookImage={newBookImage} setBookImage={setNewBookImage}
                             bookKdc={newBookKdc} setBookKdc={setNewBookKdc}
+                            searchCheck={newSearchCheck} setSearchCheck={setNewSearchCheck}
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
