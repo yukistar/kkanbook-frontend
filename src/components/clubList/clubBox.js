@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 import Card from "react-bootstrap/Card";
 import "./clubList.css"
 import { FaBook, FaCalendarAlt } from 'react-icons/fa';
 import Badge from "react-bootstrap/Badge";
 
 const ClubBox = (props) => {
+    const history = useHistory();
     const [thisClubId] = useState(props.clubId);
+
     const onBoxClick = (e) => {
-        window.location.href = "/detail/" + thisClubId;
+        history.push("/detail/" + thisClubId);
         e.stopPropagation();
     }
 
