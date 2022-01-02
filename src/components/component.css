@@ -10,3 +10,13 @@
     text-align: center;
     margin-top: auto;
 }
+
+.link-custom {
+    color: white;
+    text-decoration: none;
+}
+
+.link-custom:hover {
+    color: pink;
+    text-decoration: underline;
+}
