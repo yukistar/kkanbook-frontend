@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
 import "./component.css";
@@ -9,7 +9,6 @@ const Nav = styled.nav`
   z-index: 1;
   opacity: ${props => (props.isScroll ? "0.7" : "1")};
   backdrop-filter: blur(30px);
-  top: 0;
   padding: 0 20px;
   background: #1c2022;
   display: flex;
@@ -104,22 +103,13 @@ const OverlayMenu = styled.ul`
 const Navbar = () => {
     const [toggle, toggleNav] = useState(false);
     const [isScroll, setIsScroll] = useState(false);
-
-    const handleScroll = useCallback(() => {
-      if (window.pageYOffset > 0) {
-        setIsScroll(true);
-      }
-      if (window.pageYOffset === 0) {
-        setIsScroll(false);
-      }
-    }, []);
   
     useEffect(() => {
-      window.addEventListener('mousewheel', handleScroll);
-      return () => {
-        window.removeEventListener('mousewheel', handleScroll);
-      };
-    }, [handleScroll]);
+      window.addEventListener('scroll', () => {
+        window.pageYOffset > 0 ? 
+        setIsScroll(true) : setIsScroll(false)
+      });
+    }, [isScroll]);
 
     return (
         <div style={{marginBottom:"40px"}}>
