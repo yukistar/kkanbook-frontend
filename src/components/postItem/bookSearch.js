@@ -57,6 +57,7 @@ const BookSearch = (props) => {
                 />
                 <Button 
                     variant="outline-secondary"
+                    className="basic-button"
                     onClick={bookSearch}
                 >Search</Button>
             </InputGroup>

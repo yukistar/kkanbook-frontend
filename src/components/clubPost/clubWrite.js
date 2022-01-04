@@ -72,6 +72,7 @@ const ClubWrite = (props) => {
                         </Form.Group>
                     <Button
                         variant="outline-secondary"
+                        className="basic-button"
                         onClick={handleSubmit}
                     >Submit</Button>
                 </Form>

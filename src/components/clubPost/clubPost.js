@@ -6,7 +6,10 @@ import "./clubPost.css"
 const ClubPost = (props) => {
     return (
         <div className="club-post">
-            <Button variant="outline-secondary" onClick={props.togglePopup} size="lg" className="popup-button">+</Button>
+            <Button 
+                onClick={props.togglePopup}
+                size="lg" className="popup-button"
+            >+</Button>
             {props.showPopup ? 
                 <ClubWrite closePopup={props.togglePopup}/> 
                 : null}

@@ -24,11 +24,20 @@
 }
 
 .club-post {
-    position: absolute;
-    top: 63px;
+    position: fixed;
+    bottom: 40px;
     right: 30px;
+    z-index: 1;
 }
 
 .popup-button {
+    background: var(--main-color);
+    border-color: var(--main-color);
     border-radius: 30px;
+}
+
+.popup-button:hover, .popup-button:focus, .popup-button:active {
+    background: var(--hover-color);
+    border-color: var(--hover-color);
+    box-shadow: var(--shadow-color) !important;
 }

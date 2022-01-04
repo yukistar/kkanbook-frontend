@@ -71,6 +71,7 @@ const EditForm = () => {
                     <Button
                         variant="outline-secondary"
                         onClick={clickedEditBtn}
+                        className="basic-button"
                     >Submit</Button>
                 </Form>
         </div>

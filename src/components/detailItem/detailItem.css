@@ -26,3 +26,8 @@ div.right {
     float: right;
     box-sizing: border-box;
 }
+
+.delete-custom {
+    background: var(--main-color) !important;
+    border-color: var(--main-color) !important;
+}

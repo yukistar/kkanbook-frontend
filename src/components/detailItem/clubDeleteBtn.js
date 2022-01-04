@@ -53,7 +53,7 @@ const ClubDeleteBtn = () => {
                         </Button>
                     </div>
                     <div class="right">
-                        <Button style={confirmButtonRight} variant="primary" onClick={clickedDeleteBtn}>
+                        <Button style={confirmButtonRight} className="delete-custom" onClick={clickedDeleteBtn}>
                             삭제
                         </Button>
                     </div>

@@ -15,7 +15,8 @@
 }
 
 a {
-    color: pink;
+    color: var(--main-color);
+    text-decoration: none;
 }
 
 .a-box {

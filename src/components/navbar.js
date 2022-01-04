@@ -20,7 +20,7 @@ const Nav = styled.nav`
 
 const Logo = styled.div`
   position:absolute;
-  color: #E94883;
+  color: var(--main-color);
   font-size: 20px;
   font-weight: 800;
 `;
@@ -43,22 +43,22 @@ const Menu = styled.ul`
 const Item = styled.li`
   :nth-child(1) {
     .link-custom {
-      color: ${props => (props.menuFocus === 1 ? "#E94883" : "black")};
+      color: ${props => (props.menuFocus === 1 ? "var(--main-color)" : "black")};
     }
   }
   :nth-child(2) {
     .link-custom {
-      color: ${props => (props.menuFocus === 2 ? "#E94883" : "black")};
+      color: ${props => (props.menuFocus === 2 ? "var(--main-color)" : "black")};
     }
   }
   :nth-child(3) {
     .link-custom {
-      color: ${props => (props.menuFocus === 3 ? "#E94883" : "black")};
+      color: ${props => (props.menuFocus === 3 ? "var(--main-color)" : "black")};
     }
   }
   :nth-child(4) {
     .link-custom {
-      color: ${props => (props.menuFocus === 4 ? "#E94883" : "black")};
+      color: ${props => (props.menuFocus === 4 ? "var(--main-color)" : "black")};
     }
   }
 `;
@@ -93,7 +93,7 @@ const Line = styled.span`
   width: 25px;
   height: 3px;
   margin: 5px;
-  background-color: #E94883;
+  background-color: var(--main-color);
   transition: width 0.4s ease-in-out;
 
   :nth-child(2) {
