@@ -14,7 +14,7 @@ import ChatPage from './pages/chatPage';
 import SigninPage from './pages/signinPage';
 import SignupPage from './pages/signupPage';
 
-import Nevbar from "./components/nevbar";
+import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 
 import { createStore } from 'redux';
@@ -43,8 +43,8 @@ ReactDOM.render(
   <div className="main-wrapper">
     <Provider store = { store }>
       <PersistGate loading={null} persistor={persistor}>
-        <Nevbar />
         <Router>
+        <Navbar />
           <Route exact path="/" component={MainPage} />
           <Route path="/404" component={Notfound} />
           <Route path="/signin" component={SigninPage} />
