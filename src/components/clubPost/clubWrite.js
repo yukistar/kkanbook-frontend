@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom"
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import CloseButton from "react-bootstrap/CloseButton";
 import BookSearch from "../postItem/bookSearch";
 import ClubDate from "../postItem/clubDate";
 import "./clubPost.css"
@@ -9,7 +9,9 @@ import "./clubPost.css"
 import { useDispatch } from 'react-redux';
 import { addClub } from "../../actions/index";
 
-const ClubWrite = (props) => {
+const ClubWrite = () => {
+    const history = useHistory();
+
     const [clubTitle, setClubTitle] = useState("");
     const [clubDescription, setClubDescription] = useState("");
     const [bookTitle, setBookTitle] = useState("");
@@ -31,15 +33,13 @@ const ClubWrite = (props) => {
             alert("책 검색 플리즈");
         } else {
             onCreate(clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKdc);
-            props.closePopup();
+            history.replace("/");
         }
     };
 
 
     return (
-        <div className='popup'>
-            <div className='popup-inner'>
-                <CloseButton onClick={props.closePopup} style={{float:"right"}}></CloseButton>
+        <div className='edit-form'>
                 <Form style={{marginTop:"15px"}}>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                         <Form.Label>📚 독서토론회 제목</Form.Label>
@@ -76,7 +76,6 @@ const ClubWrite = (props) => {
                         onClick={handleSubmit}
                     >Submit</Button>
                 </Form>
-            </div>
         </div>
     )
 }

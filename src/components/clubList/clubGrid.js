@@ -32,7 +32,7 @@ const ClubList = (props) => {
                             <ClubBox 
                                 clubId={key}
                                 clubTitle={value.clubTitle}
-                                clubDescription={value.clubDescription.length > 55 ? value.clubDescription.substring(0, 55) + "..." : value.clubDescription}
+                                clubDescription={value.clubDescription}
                                 bookTitle={value.bookTitle}
                                 clubTime={value.clubTime}
                                 bookImage={value.bookImage}

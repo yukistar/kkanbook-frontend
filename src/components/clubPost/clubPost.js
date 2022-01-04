@@ -1,18 +1,21 @@
 import React from "react";
+import { useHistory } from "react-router-dom"
 import Button from "react-bootstrap/Button";
-import ClubWrite from "./clubWrite";
 import "./clubPost.css"
 
-const ClubPost = (props) => {
+const ClubPost = () => {
+    const history = useHistory();
+
+    const clickedPostBtn = () => {
+        history.push("/post");
+    }
+
     return (
         <div className="club-post">
             <Button 
-                onClick={props.togglePopup}
+                onClick={clickedPostBtn}
                 size="lg" className="popup-button"
             >+</Button>
-            {props.showPopup ? 
-                <ClubWrite closePopup={props.togglePopup}/> 
-                : null}
         </div>
     )
 }

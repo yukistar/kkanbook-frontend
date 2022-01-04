@@ -103,12 +103,11 @@ const Line = styled.span`
 
 const Overlay = styled.div`
   position: fixed;
-  top: 0; right: 0; left: 0;
-  top: 45px;
+  top: 45px; right: 0; left: 0;
   z-index: 1;
   opacity: ${props => (props.isScroll ? "0.7" : "1")};
   backdrop-filter: blur(30px);
-  height: ${props => (props.toggle ? "120px" : 0)};
+  height: ${props => (props.toggle ? "130px" : 0)};
   width: 100vw;
   background: white;
   transition: all 0.2s ease-in-out;
@@ -122,7 +121,7 @@ const OverlayMenu = styled.ul`
   list-style: none;
   position: absolute;
   left: 50%;
-  top: 45%;
+  top: 48%;
   transform: translate(-50%, -50%);
 
   li {
@@ -172,16 +171,16 @@ const Navbar = () => {
             </Nav>
             <Overlay toggle={toggle} isScroll={isScroll}>
                 <OverlayMenu toggle={toggle}>
-                    <Item menuFocus={menuFocus} onClick={() => setMenuFocus(1)}>
+                    <Item menuFocus={menuFocus} onClick={() => {setMenuFocus(1); setToggle(!toggle)}}>
                         <Link className="link-custom" to="/">모든 클럽 보기</Link>
                     </Item>
-                    <Item menuFocus={menuFocus} onClick={() => setMenuFocus(2)}>
+                    <Item menuFocus={menuFocus} onClick={() => {setMenuFocus(2); setToggle(!toggle)}}>
                         <Link className="link-custom" to="/signin">참여 예정 클럽</Link>
                     </Item>
-                    <Item menuFocus={menuFocus} onClick={() => setMenuFocus(3)}>
+                    <Item menuFocus={menuFocus} onClick={() => {setMenuFocus(3); setToggle(!toggle)}}>
                         <Link className="link-custom" to="/signin">마이 페이지</Link>
                     </Item>
-                    <Item menuFocus={menuFocus} onClick={() => setMenuFocus(4)}>
+                    <Item menuFocus={menuFocus} onClick={() => {setMenuFocus(4); setToggle(!toggle)}}>
                       <Link className="link-custom" to="/signin">로그인</Link>
                     </Item>
                 </OverlayMenu>
