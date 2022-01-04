@@ -9,25 +9,25 @@ const Nav = styled.nav`
   z-index: 1;
   opacity: ${props => (props.isScroll ? "0.7" : "1")};
   backdrop-filter: blur(30px);
-  padding: 0 20px;
-  background: #1c2022;
+  padding: 30px 20px 15px;
+  background: white;
+  font-size: 15px;
   display: flex;
   align-items: center;
   height: 40px;
   transition: all 0.2s ease-in-out;
 `;
 
-const Logo = styled.h1`
+const Logo = styled.div`
   position:absolute;
-  font-size: 25px;
-  color: white;
-  margin-top: 7px;
+  color: #E94883;
+  font-size: 20px;
+  font-weight: 800;
 `;
 
 const Menu = styled.ul`
   list-style: none;
   display: flex;
-  margin-top: 15px;
   margin: 0 auto;
   padding: 0px 20px 0px 20px;
 
@@ -40,7 +40,39 @@ const Menu = styled.ul`
   }
 `;
 
-const Item = styled.li``;
+const Item = styled.li`
+  :nth-child(1) {
+    .link-custom {
+      color: ${props => (props.menuFocus === 1 ? "#E94883" : "black")};
+    }
+  }
+  :nth-child(2) {
+    .link-custom {
+      color: ${props => (props.menuFocus === 2 ? "#E94883" : "black")};
+    }
+  }
+  :nth-child(3) {
+    .link-custom {
+      color: ${props => (props.menuFocus === 3 ? "#E94883" : "black")};
+    }
+  }
+  :nth-child(4) {
+    .link-custom {
+      color: ${props => (props.menuFocus === 4 ? "#E94883" : "black")};
+    }
+  }
+`;
+
+const Auth = styled.div`
+  position:absolute;
+  right: 0;
+  margin: 0 auto;
+  padding: 0px 20px 0px 20px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
 
 const NavIcon = styled.button`
   background: none;
@@ -61,7 +93,7 @@ const Line = styled.span`
   width: 25px;
   height: 3px;
   margin: 5px;
-  background-color: #fff;
+  background-color: #E94883;
   transition: width 0.4s ease-in-out;
 
   :nth-child(2) {
@@ -72,13 +104,13 @@ const Line = styled.span`
 const Overlay = styled.div`
   position: fixed;
   top: 0; right: 0; left: 0;
-  top: 40px;
+  top: 45px;
   z-index: 1;
   opacity: ${props => (props.isScroll ? "0.7" : "1")};
   backdrop-filter: blur(30px);
-  height: ${props => (props.toggle ? "60px" : 0)};
+  height: ${props => (props.toggle ? "120px" : 0)};
   width: 100vw;
-  background: #1c2022;
+  background: white;
   transition: all 0.2s ease-in-out;
 
   @media (min-width: 769px) {
@@ -90,7 +122,7 @@ const OverlayMenu = styled.ul`
   list-style: none;
   position: absolute;
   left: 50%;
-  top: 35%;
+  top: 45%;
   transform: translate(-50%, -50%);
 
   li {
@@ -101,8 +133,9 @@ const OverlayMenu = styled.ul`
 `;
 
 const Navbar = () => {
-    const [toggle, toggleNav] = useState(false);
+    const [toggle, setToggle] = useState(false);
     const [isScroll, setIsScroll] = useState(false);
+    const [menuFocus, setMenuFocus] = useState(0);
   
     useEffect(() => {
       window.addEventListener('scroll', () => {
@@ -112,18 +145,26 @@ const Navbar = () => {
     }, [isScroll]);
 
     return (
-        <div style={{marginBottom:"40px"}}>
+        <div style={{marginBottom:"45px"}}>
             <Nav isScroll={isScroll}>
                 <Logo>KKAN BOOK</Logo>
                 <Menu>
-                    <Item>
-                        <Link className="link-custom" to="/">클럽 목록</Link>
+                    <Item menuFocus={menuFocus} onClick={() => setMenuFocus(1)}>
+                        <Link className="link-custom" to="/">모든 클럽 보기</Link>
                     </Item>
-                    <Item>
-                        <Link className="link-custom" to="/signin">마이페이지</Link>
+                    <Item menuFocus={menuFocus} onClick={() => setMenuFocus(2)}>
+                        <Link className="link-custom" to="/signin">참여 예정 클럽</Link>
+                    </Item>
+                    <Item menuFocus={menuFocus} onClick={() => setMenuFocus(3)}>
+                        <Link className="link-custom" to="/signin">마이 페이지</Link>
+                    </Item>
+                    <Item menuFocus={menuFocus} onClick={() => setMenuFocus(4)}>
+                      <Auth>
+                        <Link className="link-custom" to="/signin">로그인</Link>
+                      </Auth>
                     </Item>
                 </Menu>
-                <NavIcon onClick={() => toggleNav(!toggle)}>
+                <NavIcon onClick={() => setToggle(!toggle)}>
                     <Line toggle={toggle} />
                     <Line toggle={toggle} />
                     <Line toggle={toggle} />
@@ -131,11 +172,17 @@ const Navbar = () => {
             </Nav>
             <Overlay toggle={toggle} isScroll={isScroll}>
                 <OverlayMenu toggle={toggle}>
-                    <Item>
-                        <Link className="link-custom" to="/">클럽 목록</Link>
+                    <Item menuFocus={menuFocus} onClick={() => setMenuFocus(1)}>
+                        <Link className="link-custom" to="/">모든 클럽 보기</Link>
                     </Item>
-                    <Item>
-                        <Link className="link-custom" to="/signin">마이페이지</Link>
+                    <Item menuFocus={menuFocus} onClick={() => setMenuFocus(2)}>
+                        <Link className="link-custom" to="/signin">참여 예정 클럽</Link>
+                    </Item>
+                    <Item menuFocus={menuFocus} onClick={() => setMenuFocus(3)}>
+                        <Link className="link-custom" to="/signin">마이 페이지</Link>
+                    </Item>
+                    <Item menuFocus={menuFocus} onClick={() => setMenuFocus(4)}>
+                      <Link className="link-custom" to="/signin">로그인</Link>
                     </Item>
                 </OverlayMenu>
             </Overlay>
