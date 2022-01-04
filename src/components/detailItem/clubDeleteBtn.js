@@ -22,9 +22,17 @@ const ClubDeleteBtn = () => {
     const closeDeleteConfirm = () => setDeleteConfirm(false);
     const showDeleteConfirm = () => setDeleteConfirm(true);
 
-    const confirmButton = {
+    const confirmButtonRight = {
         width: "100%",
-        borderRadius: "8px 8px 0px 0px",
+        height: "43px",
+        borderRadius: "0px 0px 3px 0px",
+        fontSize: "14px"
+    }
+
+    const confirmButtonLeft = {
+        width: "100%",
+        height: "43px",
+        borderRadius: "0px 0px 0px 3px",
         fontSize: "14px"
     }
 
@@ -37,15 +45,15 @@ const ClubDeleteBtn = () => {
                 onClick={showDeleteConfirm}
             >삭제</Button>
             <Modal dialogClassName='custom-dialog' show={deleteConfirm} onHide={closeDeleteConfirm}>
-                <Modal.Body className="modal-text">정말로 삭제하시겠습니까?</Modal.Body>
-                <div style={{width: "100%"}}>
+                <Modal.Body className="modal-text">정말로 삭제하시겠습니까?<br/>삭제 후에는 복구되지 않습니다.</Modal.Body>
+                <div style={{width: "100.2%", marginBottom: "-0.5px"}}>
                     <div class="left">
-                        <Button style={confirmButton} variant="secondary" onClick={closeDeleteConfirm}>
+                        <Button style={confirmButtonLeft} variant="secondary" onClick={closeDeleteConfirm}>
                             취소
                         </Button>
                     </div>
                     <div class="right">
-                        <Button style={confirmButton} variant="primary" onClick={clickedDeleteBtn}>
+                        <Button style={confirmButtonRight} variant="primary" onClick={clickedDeleteBtn}>
                             삭제
                         </Button>
                     </div>
