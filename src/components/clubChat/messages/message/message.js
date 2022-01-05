@@ -20,7 +20,7 @@ const Message = ({ message: { user, text }, name }) => {
     </div>
   ) : (
     user === "admin" ?
-    <div className="message-text admin-text">
+    <div className="message-text admin-text color-white">
       {text}
     </div> 
     :

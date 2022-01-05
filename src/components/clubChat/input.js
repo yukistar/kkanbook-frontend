@@ -2,9 +2,8 @@ import './clubChat.css'
 
 const Input = ({ message, setMessage, sendMessage }) => (
   <form className="form">
-    <input
-      placeholder="Type a message ⌨"
-      className="input"
+    <textarea
+      className="input system-font"
       type="text"
       value={message}
       onChange={(event) => setMessage(event.target.value)}
@@ -16,7 +15,7 @@ const Input = ({ message, setMessage, sendMessage }) => (
       className="send-button"
       onClick={(event) => sendMessage(event)}
     >
-      Send
+      전송
     </button>
   </form>
 )
