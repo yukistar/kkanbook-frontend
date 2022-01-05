@@ -2,6 +2,7 @@
     width: 65%;
     float: left;
     padding: 30px;
+    white-space: pre-line;
 }
 
 .club-book {

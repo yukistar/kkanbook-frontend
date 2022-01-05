@@ -41,22 +41,22 @@ const Menu = styled.ul`
 `;
 
 const Item = styled.li`
-  :nth-child(1) {
+  :nth-of-type(1) {
     .link-custom {
       color: ${props => (props.menuFocus === 1 ? "var(--main-color)" : "black")};
     }
   }
-  :nth-child(2) {
+  :nth-of-type(2) {
     .link-custom {
       color: ${props => (props.menuFocus === 2 ? "var(--main-color)" : "black")};
     }
   }
-  :nth-child(3) {
+  :nth-of-type(3) {
     .link-custom {
       color: ${props => (props.menuFocus === 3 ? "var(--main-color)" : "black")};
     }
   }
-  :nth-child(4) {
+  :nth-of-type(4) {
     .link-custom {
       color: ${props => (props.menuFocus === 4 ? "var(--main-color)" : "black")};
     }
@@ -96,7 +96,7 @@ const Line = styled.span`
   background-color: var(--main-color);
   transition: width 0.4s ease-in-out;
 
-  :nth-child(2) {
+  :nth-of-type(2) {
     width: ${props => (props.toggle ? "40%" : "70%")};
   }
 `;
