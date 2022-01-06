@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styled from "@emotion/styled";
 import "./component.css";
 
@@ -133,6 +133,7 @@ const OverlayMenu = styled.ul`
 `;
 
 const Navbar = () => {
+    const history = useHistory();
     const [toggle, setToggle] = useState(false);
     const [isScroll, setIsScroll] = useState(false);
     const [menuFocus, setMenuFocus] = useState(0);
@@ -144,13 +145,19 @@ const Navbar = () => {
       });
     }, [isScroll]);
 
+    const goIntro = (e) => {
+      history.replace("/");
+      setMenuFocus(0);
+      e.stopPropagation();
+    }
+
     return (
         <div style={{marginBottom:"45px"}}>
             <Nav isScroll={isScroll}>
-                <Logo>KKAN BOOK</Logo>
+                <Logo onClick={goIntro}>KKAN BOOK</Logo>
                 <Menu>
                     <Item menuFocus={menuFocus} onClick={() => setMenuFocus(1)}>
-                        <Link className="link-custom" to="/">모든 클럽 보기</Link>
+                        <Link className="link-custom" to="/main">모든 클럽 보기</Link>
                     </Item>
                     <Item menuFocus={menuFocus} onClick={() => setMenuFocus(2)}>
                         <Link className="link-custom" to="/signin">참여 예정 클럽</Link>

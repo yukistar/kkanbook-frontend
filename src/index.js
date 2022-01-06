@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 
+import IntroPage from './pages/introPage'
 import MainPage from './pages/mainPage'
 import EditPage from './pages/editPage'
 import Notfound from './pages/notfound'
@@ -45,7 +46,8 @@ ReactDOM.render(
       <PersistGate loading={null} persistor={persistor}>
         <Router>
         <Navbar />
-          <Route exact path="/" component={MainPage} />
+          <Route exact path="/" component={IntroPage} />
+          <Route path="/main" component={MainPage} />
           <Route path="/404" component={Notfound} />
           <Route path="/signin" component={SigninPage} />
           <Route path="/signup" component={SignupPage} />
