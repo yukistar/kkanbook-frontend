@@ -1,0 +1,22 @@
+import React, { useState } from "react";
+import Modal from "react-bootstrap/Modal";
+import "./clubPost.css"
+
+const Alert = (props) => {
+    const [showAlert, setShowAlert] = useState(props.showAlert);
+
+    const closeAlert = () => {
+        setShowAlert(false);
+        props.setAlertMessage("");
+    }
+
+    return (
+        <div className="alert">
+            <Modal dialogClassName='custom-dialog' show={showAlert} onHide={closeAlert}>
+                <Modal.Body className="modal-text">{props.alertMessage}</Modal.Body>
+            </Modal>
+        </div>
+    )
+}
+
+export default Alert

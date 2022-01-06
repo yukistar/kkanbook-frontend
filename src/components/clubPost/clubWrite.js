@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import BookSearch from "../postItem/bookSearch";
 import ClubDate from "../postItem/clubDate";
+import Alert from "./alert.js"
 import "./clubPost.css"
 
 import { useDispatch } from 'react-redux';
@@ -19,6 +20,7 @@ const ClubWrite = () => {
     const [bookImage, setBookImage] = useState("");
     const [bookKdc, setBookKdc] = useState("");
     const [searchCheck, setSearchCheck] = useState(false);
+    const [alertMessage, setAlertMessage] = useState("");
 
     const dispatch = useDispatch();
   
@@ -28,9 +30,9 @@ const ClubWrite = () => {
 
     const handleSubmit = (event) => {
         if (clubTitle === "" || clubDescription === "" || bookTitle === "" || clubTime === null) {
-            alert("모든 항목을 다 입력해주세요.");
+            setAlertMessage("모든 항목을 입력해주세요.");
         } else if (searchCheck === false) {
-            alert("책 검색 플리즈");
+            setAlertMessage("책을 검색하여 선택해주세요.");
         } else {
             onCreate(clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKdc);
             history.replace("/");
@@ -76,6 +78,9 @@ const ClubWrite = () => {
                         onClick={handleSubmit}
                     >Submit</Button>
                 </Form>
+                {alertMessage !== "" ? 
+                    <Alert showAlert={true} alertMessage={alertMessage} setAlertMessage={setAlertMessage} /> 
+                : null}
         </div>
     )
 }
