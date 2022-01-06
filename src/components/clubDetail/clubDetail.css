@@ -1,22 +1,36 @@
+.detail-page {
+    max-width: 1150px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 12%;
+}
+
 .club-detail {
     width: 65%;
     float: left;
     padding: 30px;
-    white-space: pre-line;
 }
 
 .club-book {
     width: 35%;
     float: right;
-    padding-left: 60px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.club-book-box {
+    width: 25%;
+    position: fixed;
+    margin-left: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(33, 33, 33, .1);
+    padding: 20px;
 }
 
 .detail-book-image {
-    height: 100%;
-    max-width: 90%;
-    position: relative;
-    top: 100px;
-    right: 0px;
+    width: 60%;
+    margin-bottom: 15px;
+    border: 1px solid rgba(187, 187, 187, 0.384);
 }
 
 .detail-club-title {
@@ -26,19 +40,48 @@
 }
 
 .detail-club-description {
-    font-weight: 400;
-    font-size: 16px;
-    line-height:190%;
+    line-height: 190%;
     padding-bottom: 40px;
+    white-space: pre-line;
 }
 
 .detail-book-title {
-    font-weight: 400;
-    font-size: 16px;
     margin-bottom: 5px;
 }
 
 .detail-club-time {
-    font-weight: 400;
-    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.book-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+@media (width <= 800px) {
+    .detail-page {
+        margin: 0;
+    }
+    .club-detail {
+        width: 100%;
+        float: none;
+    }
+    .club-book {
+        width: 100%;
+        float: none;
+        padding-left: 20px; padding-right: 20px;
+    }
+    .club-book-box {
+        width: 100%;
+        margin-left: 0px;
+        position: relative;
+        box-shadow: none;
+        border: 1px solid rgba(187, 187, 187, 0.384);
+    }
+    .club-book-box br {
+        display: none;
+    }
+    .detail-book-image {
+        width: 30%;
+    }
 }
