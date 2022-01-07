@@ -15,6 +15,7 @@ import ChatPage from './pages/chatPage';
 import SigninPage from './pages/signinPage';
 import SignupPage from './pages/signupPage';
 
+import ScrollToTop from "./hooks/useScrollToTop";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 
@@ -45,6 +46,7 @@ ReactDOM.render(
     <Provider store = { store }>
       <PersistGate loading={null} persistor={persistor}>
         <Router>
+        <ScrollToTop />
         <Navbar />
           <Route exact path="/" component={IntroPage} />
           <Route path="/main" component={MainPage} />

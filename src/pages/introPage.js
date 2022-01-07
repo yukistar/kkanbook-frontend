@@ -20,6 +20,10 @@ const KKANBOOK = styled.div`
     height: 94vh;
     padding-left: 10%;
     padding-top: 150px;
+    @media (max-width: 600px) {
+        width: 90%;
+        height: 100vh;
+    } 
 `;
 
 const KkanLogo = styled.div`
@@ -54,12 +58,15 @@ const KkanDescription = styled.div`
 
 const Features = styled.div`
     width: 80%;
-    height: 60vh;
+    height: 75vh;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     margin-bottom: 40px;
     align-items: center;
+    @media (max-width: 600px) {
+        display: none;
+    } 
 `;
 
 const ItemBox = styled.li`
@@ -70,23 +77,14 @@ const ItemBox = styled.li`
     display: flex;
     flex-direction: column;
     border: 1px solid rgba(187, 187, 187, 0.384);
-    @media (max-width: 600px) {
-        padding: 1rem 1rem;
-    } 
 `;
 
 const ItemTitle = styled.h4`
     margin-bottom: 2rem;
-    @media (max-width: 600px) {
-        font-size: 18px;
-    } 
 `;
 
 const ItemDescription = styled.p`
     margin-bottom: 1.5rem;
-    @media (max-width: 600px) {
-        display: none;
-    } 
 `;
 
 const Ending = styled.div`
@@ -95,6 +93,12 @@ const Ending = styled.div`
     margin: 0 auto;
     display: flex;
     align-items: center;
+    @media (max-width: 600px) {
+        display: inline-block;
+        text-align: center;
+        width: 98%;
+        padding-top: 150px;
+    } 
 `;
 
 const EndingMent = styled.h2`
@@ -102,6 +106,9 @@ const EndingMent = styled.h2`
     text-align: center;
     display: flex;
     flex-direction: column;
+    @media (max-width: 600px) {
+        font-size: 20px;
+    } 
 `;
 
 const Bounce = styled.div`
