@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import BookSearch from "../postItem/bookSearch";
 import ClubDate from "../postItem/clubDate";
+import Alert from "../clubPost/alert.js"
 import "./clubEdit.css"
 
 import { useDispatch } from 'react-redux';
@@ -22,14 +23,15 @@ const EditForm = () => {
     const [newBookImage, setNewBookImage] = useState(clubs[id].bookImage);
     const [newBookKdc, setNewBookKdc] = useState(clubs[id].bookKdc);
     const [newSearchCheck, setNewSearchCheck] = useState(true);
+    const [alertMessage, setAlertMessage] = useState("");
 
     const dispatch = useDispatch();
 
     const clickedEditBtn = () => {
         if (newClubTitle === "" || newClubDescription === "" || newBookTitle === "" || newClubTime === null) {
-            alert("모든 항목을 다 입력해주세요.");
+            setAlertMessage("모든 항목을 입력해주세요.");
         } else if (newSearchCheck === false) {
-            alert("책 검색 플리즈");
+            setAlertMessage("책을 검색하여 선택해주세요.");
         } else {
             dispatch(editClub(id, newClubTitle, newClubDescription, newBookTitle, newClubTime, newBookImage, newBookKdc));
             history.replace("/detail/" + id);
@@ -71,8 +73,12 @@ const EditForm = () => {
                     <Button
                         variant="outline-secondary"
                         onClick={clickedEditBtn}
+                        className="basic-button"
                     >Submit</Button>
                 </Form>
+                {alertMessage !== "" ? 
+                    <Alert showAlert={true} alertMessage={alertMessage} setAlertMessage={setAlertMessage} /> 
+                : null}
         </div>
     )
 }

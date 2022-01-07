@@ -17,5 +17,5 @@
 }
 
 .link-custom:hover {
-    color: #E94883;
+    color: var(--main-color) !important;
 }

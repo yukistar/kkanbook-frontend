@@ -1,5 +1,5 @@
 .club-list {
-    max-width: 1050px;
+    max-width: 1180px;
     margin: 0 auto;
     margin-top: 100px;
 }
@@ -14,7 +14,7 @@
 
 .card-box {
     margin: 0 auto;
-    width: 15rem;
+    width: 17rem;
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
     -webkit-transition-duration: 0.3s;
@@ -36,6 +36,9 @@
     z-index: 1;
     top: 3px;
     left: 3px;
+    background: var(--main-color) !important;
+    color: white !important;
+    font-weight: 400 !important;
 }
 
 .book-image {
@@ -54,6 +57,7 @@
     font-weight: 400;
     font-size: 14px;
     height: 65px;
+    overflow: hidden;
 }
 
 .book-title {
@@ -69,10 +73,12 @@
     font-size: 13px;
 }
 
+@media (width <= 1300px) {
+    .card-box { width: 15rem; }
+    .book-image { height: 180px; }
+}
+
 @media (width <= 1000px) {
     .card-box { width: 13rem; }
     .book-image { height: 150px; }
-    .club-description {
-        overflow: hidden;
-    }
 }

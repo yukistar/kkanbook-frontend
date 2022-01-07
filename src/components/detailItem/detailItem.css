@@ -1,8 +1,6 @@
 .count-down {
-    padding: 0px 30px 0px 30px;
     font-weight: 400;
     font-size: 18px;
-    padding-bottom: 10px;
 }
 
 .custom-dialog {
@@ -25,4 +23,9 @@ div.right {
     width: 50%;
     float: right;
     box-sizing: border-box;
+}
+
+.delete-custom {
+    background: var(--main-color) !important;
+    border-color: var(--main-color) !important;
 }

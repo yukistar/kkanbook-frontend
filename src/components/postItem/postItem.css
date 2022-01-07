@@ -21,14 +21,14 @@
 }
 
 .selected-day {
-    background: navy !important;
+    background: var(--main-color) !important;
     color: white !important;
     border-radius: 50% !important;
     font-weight: 700;
 }
 
 .selected-time {
-    background: navy;
+    background: var(--main-color) !important;
     color: white;
     font-weight: 700;
 }
@@ -38,7 +38,6 @@
     color: black;
     border-radius: 50%;
 }
-
 
 .book-list {
     font-size: 15px;

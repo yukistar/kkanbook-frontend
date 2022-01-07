@@ -47,13 +47,13 @@ const ClubDeleteBtn = () => {
             <Modal dialogClassName='custom-dialog' show={deleteConfirm} onHide={closeDeleteConfirm}>
                 <Modal.Body className="modal-text">정말로 삭제하시겠습니까?<br/>삭제 후에는 복구되지 않습니다.</Modal.Body>
                 <div style={{width: "100.2%", marginBottom: "-0.5px"}}>
-                    <div class="left">
+                    <div className="left">
                         <Button style={confirmButtonLeft} variant="secondary" onClick={closeDeleteConfirm}>
                             취소
                         </Button>
                     </div>
-                    <div class="right">
-                        <Button style={confirmButtonRight} variant="primary" onClick={clickedDeleteBtn}>
+                    <div className="right">
+                        <Button style={confirmButtonRight} className="delete-custom" onClick={clickedDeleteBtn}>
                             삭제
                         </Button>
                     </div>

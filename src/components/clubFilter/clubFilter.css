@@ -62,6 +62,10 @@
     height: 36px;
 }
 
+#dropdown-title:hover, #dropdown-title:focus, #dropdown-title:active {
+    box-shadow: var(--shadow-color) !important;
+}
+
 .condition-init {
     font-size: 14px;
     color: #575756;

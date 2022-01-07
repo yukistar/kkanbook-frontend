@@ -9,6 +9,7 @@ import IntroPage from './pages/introPage'
 import MainPage from './pages/mainPage'
 import EditPage from './pages/editPage'
 import Notfound from './pages/notfound'
+import PostPage from './pages/postPage'
 import DetailPage from './pages/detailPage'
 import JoinPage from './pages/joinPage'
 import ChatPage from './pages/chatPage';
@@ -53,6 +54,7 @@ ReactDOM.render(
           <Route path="/404" component={Notfound} />
           <Route path="/signin" component={SigninPage} />
           <Route path="/signup" component={SignupPage} />
+          <Route path="/post" component={PostPage} />
           <Route path="/detail/:id" component={DetailPage} />
           <Route path="/edit/:id" component={EditPage} />
           <Route path="/join/:id" component={JoinPage} />
