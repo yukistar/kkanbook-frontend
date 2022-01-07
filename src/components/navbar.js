@@ -140,10 +140,13 @@ const Navbar = () => {
   
     useEffect(() => {
       window.addEventListener('scroll', () => {
+        if (history.location.pathname === "/main") {
+          setMenuFocus(1)
+        }
         window.pageYOffset > 0 ? 
         setIsScroll(true) : setIsScroll(false)
       });
-    }, [isScroll]);
+    }, [isScroll, history.location.pathname]);
 
     const goIntro = (e) => {
       history.replace("/");
@@ -180,7 +183,7 @@ const Navbar = () => {
             <Overlay toggle={toggle} isScroll={isScroll}>
                 <OverlayMenu toggle={toggle}>
                     <Item menuFocus={menuFocus} onClick={() => setMenuFocus(1)}>
-                        <Link className="link-custom" to="/">모든 클럽 보기</Link>
+                        <Link className="link-custom" to="/main">모든 클럽 보기</Link>
                     </Item>
                     <Item menuFocus={menuFocus} onClick={() => setMenuFocus(2)}>
                         <Link className="link-custom" to="/signin">참여 예정 클럽</Link>
