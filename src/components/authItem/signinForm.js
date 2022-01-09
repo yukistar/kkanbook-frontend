@@ -29,6 +29,7 @@ const SigninForm = () => {
                     />
                 </Form.Group>
                 <Button
+                    className="basic-button"
                     style={{width:"100%"}}
                     variant="outline-secondary"
                 >로그인</Button>

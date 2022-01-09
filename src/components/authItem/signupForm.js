@@ -10,10 +10,9 @@ const SignupForm = () => {
 
     return (
         <div className='auth-form'>
-            <h2 className='titleh3'>회원가입</h2>
+            <h3 className='titleh3'>회원가입</h3>
             <Form style={{marginTop:"15px"}}>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>이메일</Form.Label>
                     <Form.Control 
                         as="textarea" rows={1} className="system-font"
                         placeholder="ID"
@@ -32,12 +31,21 @@ const SignupForm = () => {
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                     <Form.Control
                         as="textarea" rows={1} className="system-font"
+                        placeholder="Password 확인"
+                        value={userPassword}
+                        onChange={e => setUserPassword(e.target.value)}
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                    <Form.Control
+                        as="textarea" rows={1} className="system-font"
                         placeholder="이름"
                         value={userName}
                         onChange={e => setUserName(e.target.value)}
                     />
                 </Form.Group>
                 <Button
+                    className="basic-button"
                     style={{width:"100%"}}
                     variant="outline-secondary"
                 >회원가입</Button>
