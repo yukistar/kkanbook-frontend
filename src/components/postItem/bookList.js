@@ -28,7 +28,11 @@ const BookList = (props) => {
     }
 
     const onTrClick = (i) => {
-        nlSearch(props.searchBookList[i][0]);
+        let pickedTitle = props.searchBookList[i][0];
+        if (pickedTitle.indexOf('(') !== -1) {
+            pickedTitle = pickedTitle.substring(0, pickedTitle.indexOf('('));
+        }
+        nlSearch(pickedTitle);
         props.setBookTitle(props.searchBookList[i][0]);
         props.setBookImage(props.searchBookList[i][3]);
         props.setShowBookList(false);

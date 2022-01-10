@@ -30,14 +30,9 @@ const BookSearch = (props) => {
         try {
             const kakaoRes = await kakao(props.bookTitle).get();
             const resList = []
-            for (let i = 0; i < kakaoRes.data.documents.length; i++) {
-                resList.push([
-                    kakaoRes.data.documents[i].title,
-                    kakaoRes.data.documents[i].authors[0],
-                    kakaoRes.data.documents[i].publisher,
-                    kakaoRes.data.documents[i].thumbnail
-                ])
-            }
+            kakaoRes.data.documents.forEach((item) => {
+                resList.push([item.title, item.authors[0], item.publisher, item.thumbnail])
+            });
             setSearchBookList(resList);
         } catch (error) {
             console.log(error);
@@ -63,7 +58,7 @@ const BookSearch = (props) => {
             </InputGroup>
             {showBookList ? 
                 <BookList 
-                    searchBookList={searchBookList}
+                    bookTitle={props.bookTitle} searchBookList={searchBookList}
                     setBookTitle={props.setBookTitle} 
                     setBookImage={props.setBookImage}
                     setBookKdc={props.setBookKdc}
