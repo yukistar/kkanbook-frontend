@@ -16,7 +16,7 @@ const ClubDeleteBtn = () => {
 
     const clickedDeleteBtn = () => {
         dispatch(deleteClub(id), [dispatch]);
-        history.replace("/");
+        history.replace("/main");
     }
 
     const closeDeleteConfirm = () => setDeleteConfirm(false);
