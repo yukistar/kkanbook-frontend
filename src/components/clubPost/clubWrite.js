@@ -35,7 +35,7 @@ const ClubWrite = () => {
             setAlertMessage("책을 검색하여 선택해주세요.");
         } else {
             onCreate(clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKdc);
-            history.replace("/");
+            history.replace("/main");
         }
     };
 
