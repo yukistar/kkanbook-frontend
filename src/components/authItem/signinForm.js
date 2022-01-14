@@ -14,15 +14,14 @@ const SigninForm = () => {
             <Form style={{marginTop:"15px"}}>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                     <Form.Control 
-                        as="textarea" rows={1} className="system-font"
-                        placeholder="ID"
+                        rows={1} className="system-font" placeholder="ID"
                         value={userId}
                         onChange={e => setUserId(e.target.value)}
                     />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                     <Form.Control
-                        as="textarea" rows={1} className="system-font"
+                        rows={1} className="system-font" type="password"
                         placeholder="Password"
                         value={userPassword}
                         onChange={e => setUserPassword(e.target.value)}
