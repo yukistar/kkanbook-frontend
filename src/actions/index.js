@@ -2,6 +2,8 @@ export const ADD_CLUB = 'ADD_CLUB';
 export const DELETE_CLUB = 'DELETE_CLUB';
 export const EDIT_CLUB = 'EDIT_CLUB';
 
+export const SIGNUP_USER = 'SIGNUP_USER';
+
 let nextId = Math.floor(Math.random() * 10000000);
 
 export const addClub = (clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKdc) => {
@@ -37,6 +39,17 @@ export const editClub = (clubId, clubTitle, clubDescription, bookTitle, clubTime
             clubTime,
             bookImage,
             bookKdc
+        }
+    };
+}
+
+export const signupUser = (userId, userPassword, userName) => {
+    return {
+        type: SIGNUP_USER,
+        userId: userId,
+        user: {
+            userPassword,
+            userName
         }
     };
 }

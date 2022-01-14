@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom"
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -6,7 +7,13 @@ import Modal from "react-bootstrap/Modal";
 import Alert from "../clubPost/alert"
 import "./authItem.css"
 
+import { useDispatch } from 'react-redux';
+import { signupUser } from "../../actions/index";
+
 const SignupForm = () => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+
     const [userId, setUserId] = useState("");
     const [userPassword, setUserPassword] = useState("");
     const [checkPassword, setCheckPassword] = useState("");
@@ -27,6 +34,9 @@ const SignupForm = () => {
             setAlertMessage("모든 항목을 입력해주세요.");
         } else if (checkDuplicate === false) {
             setAlertMessage("ID 중복 검사를 진행해주세요.");
+        } else {
+            dispatch(signupUser(userId, userPassword, userName));
+            history.replace("/signin");
         }
     };
 
