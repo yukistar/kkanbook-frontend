@@ -3,6 +3,7 @@ import { useCookies } from 'react-cookie';
 import { Link, useHistory } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Alert from "../clubPost/alert"
 import "./authItem.css"
 
 import { useSelector } from 'react-redux';
@@ -13,6 +14,7 @@ const SigninForm = (props) => {
 
     const [userId, setUserId] = useState("");
     const [userPassword, setUserPassword] = useState("");
+    const [alertMessage, setAlertMessage] = useState("");
 
     const [cookies, setCookie] = useCookies(['rememberUser']);
 
@@ -24,9 +26,10 @@ const SigninForm = (props) => {
 
     const handleSignin = (event) => {
         if (userId in users && userPassword === users[userId].userPassword) {
-            setCookie('rememberUser', userId, {maxAge: 2000});
+            setCookie('rememberUser', userId, {path:'/', maxAge: 2000});
             window.location.replace(history.location.state.history); // 새로고침 되도록
         } else {
+            setAlertMessage("ID와 비밀번호를 다시 확인해주세요.");
         }
         event.stopPropagation();
     };
@@ -60,6 +63,9 @@ const SigninForm = (props) => {
             <div className="a-box">
                 <Link to="/signup">회원가입</Link>
             </div>
+            {alertMessage !== "" ? 
+                <Alert showAlert={true} alertMessage={alertMessage} setAlertMessage={setAlertMessage} /> 
+            : null}
         </div>
     )
 }

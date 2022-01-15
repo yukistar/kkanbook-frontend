@@ -154,7 +154,6 @@ const Navbar = () => {
     }, [handleScroll]);
 
     useEffect(() => { // 나중에 더 추가해
-      console.log(history.location.pathname);
       if (history.location.pathname === "/main") { setMenuFocus(1); }
     }, [history.location.pathname]);
 
@@ -169,7 +168,8 @@ const Navbar = () => {
     }
 
     const handleSignout = (e) => {
-      cookies.remove('rememberUser');
+      console.log("ddd");
+      cookies.remove('rememberUser', { path: '/' });
       history.go(0);
       e.stopPropagation();
     }
@@ -219,7 +219,9 @@ const Navbar = () => {
                     <Item menuFocus={menuFocus} onClick={() => {setMenuFocus(4); setToggle(!toggle)}}>
                         {isLogin ? 
                           (<div className="link-custom" onClick={handleSignout}>로그아웃</div>) :
-                          (<Link className="link-custom" to="/signin">로그인</Link>)
+                          (<Link className="link-custom" 
+                            to={{pathname: '/signin', state: {history: history.location.pathname}}}>
+                            로그인</Link>)
                         }
                     </Item>
                 </OverlayMenu>
