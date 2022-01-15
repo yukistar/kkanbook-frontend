@@ -26,6 +26,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import rootReducer from './reducers/index';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { CookiesProvider } from 'react-cookie';
 
 const persistConfig = {
   key: 'root',
@@ -44,6 +45,7 @@ const { store, persistor } = configureStore();
 
 ReactDOM.render(
   <div className="main-wrapper">
+    <CookiesProvider>
     <Provider store = { store }>
       <PersistGate loading={null} persistor={persistor}>
         <Router>
@@ -63,6 +65,7 @@ ReactDOM.render(
         <Footer />
       </PersistGate>
     </Provider>
+    </CookiesProvider>
   </div>, 
 
   document.getElementById('root')

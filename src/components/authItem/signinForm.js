@@ -1,26 +1,32 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useCookies } from 'react-cookie';
+import { Link, useHistory } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./authItem.css"
 
 import { useSelector } from 'react-redux';
 
-const SigninForm = () => {
+const SigninForm = (props) => {
+    const history = useHistory();
+    const users = useSelector(state => state.users);
+
     const [userId, setUserId] = useState("");
     const [userPassword, setUserPassword] = useState("");
 
-    const users = useSelector(state => state.users);
+    const [cookies, setCookie] = useCookies(['rememberUser']);
+
+    useEffect(() => {
+        if(cookies.rememberUser !== undefined) {
+            setUserId(cookies.rememberUser);
+        }
+     }, [cookies.rememberUser]);
 
     const handleSignin = (event) => {
-        if (userId in users) {
-            if (userPassword === users[userId].userPassword) {
-                alert("로그인 성공");
-            } else {
-                alert("비밀번호 틀림");
-            }
+        if (userId in users && userPassword === users[userId].userPassword) {
+            setCookie('rememberUser', userId, {maxAge: 2000});
+            window.location.replace(history.location.state.history); // 새로고침 되도록
         } else {
-            alert("존재하는 아이디 없음");
         }
         event.stopPropagation();
     };

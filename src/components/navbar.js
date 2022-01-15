@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { Cookies } from "react-cookie";
+
 import styled from "@emotion/styled";
 import "./component.css";
 
@@ -132,24 +134,43 @@ const OverlayMenu = styled.ul`
 `;
 
 const Navbar = () => {
+    const cookies = new Cookies();
+    const cookiesUser = new Cookies().get('rememberUser');
     const history = useHistory();
     const [toggle, setToggle] = useState(false);
     const [isScroll, setIsScroll] = useState(false);
+    const [isLogin, setIsLogin] = useState(false);
     const [menuFocus, setMenuFocus] = useState(0);
-  
+
+    const handleScroll = useCallback(() => {
+      window.pageYOffset > 0 ? setIsScroll(true) : setIsScroll(false)
+    }, []);
+
     useEffect(() => {
-      window.addEventListener('scroll', () => {
-        if (history.location.pathname === "/main") {
-          setMenuFocus(1)
-        }
-        window.pageYOffset > 0 ? 
-        setIsScroll(true) : setIsScroll(false)
-      });
-    }, [isScroll, history.location.pathname]);
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      }
+    }, [handleScroll]);
+
+    useEffect(() => { // 나중에 더 추가해
+      console.log(history.location.pathname);
+      if (history.location.pathname === "/main") { setMenuFocus(1); }
+    }, [history.location.pathname]);
+
+    useEffect(() => {
+      cookiesUser ? setIsLogin(true) : setIsLogin(false);
+    }, [cookiesUser]);
 
     const goIntro = (e) => {
       history.replace("/");
       setMenuFocus(0);
+      e.stopPropagation();
+    }
+
+    const handleSignout = (e) => {
+      cookies.remove('rememberUser');
+      history.go(0);
       e.stopPropagation();
     }
 
@@ -169,7 +190,12 @@ const Navbar = () => {
                     </Item>
                     <Item menuFocus={menuFocus} onClick={() => setMenuFocus(4)}>
                       <Auth>
-                        <Link className="link-custom" to="/signin">로그인</Link>
+                        {isLogin ? 
+                          (<div className="link-custom" onClick={handleSignout}>로그아웃</div>) :
+                          (<Link className="link-custom" 
+                            to={{pathname: '/signin', state: {history: history.location.pathname}}}>
+                            로그인</Link>)
+                        }
                       </Auth>
                     </Item>
                 </Menu>
@@ -191,7 +217,10 @@ const Navbar = () => {
                         <Link className="link-custom" to="/signin">마이 페이지</Link>
                     </Item>
                     <Item menuFocus={menuFocus} onClick={() => {setMenuFocus(4); setToggle(!toggle)}}>
-                      <Link className="link-custom" to="/signin">로그인</Link>
+                        {isLogin ? 
+                          (<div className="link-custom" onClick={handleSignout}>로그아웃</div>) :
+                          (<Link className="link-custom" to="/signin">로그인</Link>)
+                        }
                     </Item>
                 </OverlayMenu>
             </Overlay>
