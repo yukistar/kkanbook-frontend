@@ -14,6 +14,7 @@ import DetailPage from './pages/detailPage'
 import ChatPage from './pages/chatPage';
 import SigninPage from './pages/signinPage';
 import SignupPage from './pages/signupPage';
+import MyclubPage from './pages/myclubPage'
 
 import ScrollToTop from "./hooks/useScrollToTop";
 import Navbar from "./components/navbar";
@@ -59,6 +60,7 @@ ReactDOM.render(
           <Route path="/detail/:id" component={DetailPage} />
           <Route path="/edit/:id" component={EditPage} />
           <Route path="/chat" component={ChatPage} />
+          <Route path="/myclub" component={MyclubPage} />
         </Router>
         <Footer />
       </PersistGate>

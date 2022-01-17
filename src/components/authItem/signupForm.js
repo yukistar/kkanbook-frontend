@@ -37,7 +37,7 @@ const SignupForm = () => {
         } else if (checkDuplicate === false) {
             setAlertMessage("ID 중복 검사를 진행해주세요.");
         } else {
-            dispatch(signupUser(userId, userPassword, userName));
+            dispatch(signupUser(userId, userPassword, userName, []));
             history.replace({
                 pathname: "/signin", 
                 state: {history: history.location.state.history}

@@ -3,6 +3,8 @@ export const DELETE_CLUB = 'DELETE_CLUB';
 export const EDIT_CLUB = 'EDIT_CLUB';
 
 export const SIGNUP_USER = 'SIGNUP_USER';
+export const ADD_PARTICIPATE_CLUB = 'ADD_PARTICIPATE_CLUB';
+export const DELETE_PARTICIPATE_CLUB = 'DELETE_PARTICIPATE_CLUB';
 
 let nextId = Math.floor(Math.random() * 10000000);
 
@@ -43,13 +45,30 @@ export const editClub = (clubId, clubTitle, clubDescription, bookTitle, clubTime
     };
 }
 
-export const signupUser = (userId, userPassword, userName) => {
+export const signupUser = (userId, userPassword, userName, participateClubs) => {
     return {
         type: SIGNUP_USER,
         userId: userId,
         user: {
             userPassword,
-            userName
+            userName,
+            participateClubs
         }
+    };
+}
+
+export const addParticipateClub = (userId, clubId) => {
+    return {
+        type: ADD_PARTICIPATE_CLUB,
+        userId: userId,
+        clubId: clubId
+    };
+}
+
+export const deleteParticipateClub = (userId, clubId) => {
+    return {
+        type: DELETE_PARTICIPATE_CLUB,
+        userId: userId,
+        clubId: clubId
     };
 }
