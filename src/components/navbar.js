@@ -155,6 +155,7 @@ const Navbar = () => {
 
     useEffect(() => { // 나중에 더 추가해
       if (history.location.pathname === "/main") { setMenuFocus(1); }
+      else if (history.location.pathname === "/myclub") { setMenuFocus(2); }
     }, [history.location.pathname]);
 
     useEffect(() => {
@@ -183,7 +184,7 @@ const Navbar = () => {
                         <Link className="link-custom" to="/main">모든 클럽 보기</Link>
                     </Item>
                     <Item menuFocus={menuFocus} onClick={() => setMenuFocus(2)}>
-                        <Link className="link-custom" to="/signin">참여 예정 클럽</Link>
+                        <Link className="link-custom" to="/myclub">참여 예정 클럽</Link>
                     </Item>
                     <Item menuFocus={menuFocus} onClick={() => setMenuFocus(3)}>
                         <Link className="link-custom" to="/signin">마이 페이지</Link>
@@ -211,7 +212,7 @@ const Navbar = () => {
                         <Link className="link-custom" to="/main">모든 클럽 보기</Link>
                     </Item>
                     <Item menuFocus={menuFocus} onClick={() => {setMenuFocus(2); setToggle(!toggle)}}>
-                        <Link className="link-custom" to="/signin">참여 예정 클럽</Link>
+                        <Link className="link-custom" to="/myclub">참여 예정 클럽</Link>
                     </Item>
                     <Item menuFocus={menuFocus} onClick={() => {setMenuFocus(3); setToggle(!toggle)}}>
                         <Link className="link-custom" to="/signin">마이 페이지</Link>
