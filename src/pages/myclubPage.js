@@ -32,15 +32,14 @@ const MyclubPage = () => {
     const clubs = useSelector(state => state.clubs);
     const history = useHistory();
 
-    const myClbs = {}
-
     useEffect(() => {
         if (cookiesUser === undefined) {
             history.push({pathname: "/signin", state: {history: history.location.pathname}});
         }
     }, [cookiesUser, history]);
-    
+
     useEffect(() => {
+        const myClbs = {}
         if (cookiesUser !== undefined) {
             for (let key in clubs) {
                 if (users[cookiesUser]["participateClubs"].includes(key)) {
@@ -49,7 +48,7 @@ const MyclubPage = () => {
             }
             setMyParticipateClubs(myClbs);
         }
-    }, [users, cookiesUser]);
+    }, [cookiesUser, clubs, users]);
 
 
     return (
