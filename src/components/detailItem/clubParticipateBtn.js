@@ -51,7 +51,7 @@ const ClubParticipateBtn = () => {
                 size="sm"
                 className="delete-button"
                 onClick={clickedParticipateBtn}
-            >{(users[cookiesUser]["participateClubs"].includes(id)) ? "참여 취소" : "참여"}</Button>
+            >{(cookiesUser !== undefined) && (users[cookiesUser]["participateClubs"].includes(id)) ? "참여 취소" : "참여"}</Button>
             <Modal dialogClassName='custom-dialog' show={loginConfirm} onHide={closeLoginConfirm}>
                 <Modal.Body className="modal-text">로그인 후에 사용해주세요.</Modal.Body>
                 <div style={{margin: "0 auto", marginTop: "-15px", marginBottom: "15px"}}>

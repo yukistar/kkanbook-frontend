@@ -82,3 +82,7 @@
     .card-box { width: 13rem; }
     .book-image { height: 150px; }
 }
+
+@media (width > 1300px) {
+    .club-list { width: 1180px; }
+}
