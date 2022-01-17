@@ -7,12 +7,13 @@ import Modal from "react-bootstrap/Modal";
 import Alert from "../clubPost/alert"
 import "./authItem.css"
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signupUser } from "../../actions/index";
 
 const SignupForm = () => {
     const history = useHistory();
     const dispatch = useDispatch();
+    const users = useSelector(state => state.users);
 
     const [userId, setUserId] = useState("");
     const [userPassword, setUserPassword] = useState("");
@@ -23,11 +24,12 @@ const SignupForm = () => {
     const [duplicateConfirm, setDuplicateConfirm] = useState(false);  //중복체크 모달
     const [alertMessage, setAlertMessage] = useState("");
 
-    const closeDuplicateConfirm = () => {
+    const closeDuplicateConfirm = () => setDuplicateConfirm(false);
+    const showDuplicateConfirm = () => setDuplicateConfirm(true);
+    const checkDuplicateConfirm = () => {
         setDuplicateConfirm(false)
         setCheckDuplicate(true)
     };
-    const showDuplicateConfirm = () => setDuplicateConfirm(true);
 
     const handleSignup = (event) => {
         if (userId === "" || userPassword === "" || checkPassword === "" || userName === "") {
@@ -36,7 +38,10 @@ const SignupForm = () => {
             setAlertMessage("ID 중복 검사를 진행해주세요.");
         } else {
             dispatch(signupUser(userId, userPassword, userName));
-            history.replace("/signin");
+            history.replace({
+                pathname: "/signin", 
+                state: {history: history.location.state.history}
+            }) 
         }
     };
 
@@ -58,12 +63,26 @@ const SignupForm = () => {
                     >중복 검사</Button>
                 </InputGroup>
                 <Modal dialogClassName='custom-dialog' show={duplicateConfirm} onHide={closeDuplicateConfirm}>
-                    <Modal.Body className="modal-text">사용 가능한 ID입니다.</Modal.Body>
-                    <div style={{margin: "0 auto", marginTop: "-15px", marginBottom: "15px"}}>
-                        <Button className="delete-custom" onClick={closeDuplicateConfirm}>
-                            확인
-                        </Button>
-                    </div>
+                    {(userId in users) ?
+                        (<>
+                            <Modal.Body className="modal-text">이미 존재하는 ID입니다.</Modal.Body>
+                            <div style={{margin: "0 auto", marginTop: "-15px", marginBottom: "15px"}}>
+                                <Button className="delete-custom" onClick={closeDuplicateConfirm}>
+                                    확인
+                                </Button>
+                            </div>
+                        </>)
+                    :
+                        (<>
+                            <Modal.Body className="modal-text">사용 가능한 ID입니다.</Modal.Body>
+                            <div style={{margin: "0 auto", marginTop: "-15px", marginBottom: "15px"}}>
+                                <Button className="delete-custom" onClick={checkDuplicateConfirm}>
+                                    확인
+                                </Button>
+                            </div>
+                        </>)
+                    }
+
                 </Modal>
                 <Form.Group className="mb-3">
                     <Form.Control

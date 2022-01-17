@@ -61,7 +61,9 @@ const SigninForm = (props) => {
                 >로그인</Button>
             </Form>
             <div className="a-box">
-                <Link to="/signup">회원가입</Link>
+                <Link
+                    to={{pathname: '/signup', state: {history: history.location.state.history}}}>
+                회원가입</Link>
             </div>
             {alertMessage !== "" ? 
                 <Alert showAlert={true} alertMessage={alertMessage} setAlertMessage={setAlertMessage} /> 
