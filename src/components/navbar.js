@@ -153,9 +153,10 @@ const Navbar = () => {
       }
     }, [handleScroll]);
 
-    useEffect(() => { // 나중에 더 추가해
+    useEffect(() => {
       if (history.location.pathname === "/main") { setMenuFocus(1); }
       else if (history.location.pathname === "/myclub") { setMenuFocus(2); }
+      else if (history.location.pathname === "/mypage") { setMenuFocus(3); }
     }, [history.location.pathname]);
 
     useEffect(() => {
@@ -187,7 +188,7 @@ const Navbar = () => {
                         <Link className="link-custom" to="/myclub">참여 예정 클럽</Link>
                     </Item>
                     <Item menuFocus={menuFocus} onClick={() => setMenuFocus(3)}>
-                        <Link className="link-custom" to="/signin">마이 페이지</Link>
+                        <Link className="link-custom" to="/mypage">마이 페이지</Link>
                     </Item>
                     <Item menuFocus={menuFocus} onClick={() => setMenuFocus(4)}>
                       <Auth>
@@ -215,7 +216,7 @@ const Navbar = () => {
                         <Link className="link-custom" to="/myclub">참여 예정 클럽</Link>
                     </Item>
                     <Item menuFocus={menuFocus} onClick={() => {setMenuFocus(3); setToggle(!toggle)}}>
-                        <Link className="link-custom" to="/signin">마이 페이지</Link>
+                        <Link className="link-custom" to="/mypage">마이 페이지</Link>
                     </Item>
                     <Item menuFocus={menuFocus} onClick={() => {setMenuFocus(4); setToggle(!toggle)}}>
                         {isLogin ? 
