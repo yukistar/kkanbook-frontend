@@ -42,20 +42,40 @@ const PersonalInform = styled.div`
     border: 1px solid rgba(187, 187, 187, 0.384);
 `;
 
-const Bookshelf = styled.div`
+const FlexBooks = styled.div`
     display: flex;
-    margin-top: 10px;
-    border-radius: 10px;
-    padding: 5px;
-    border: 1px solid rgba(187, 187, 187, 0.384);
+    padding-top: 30px;
+    padding-left: 20px; padding-right: 15px;
+    flex-wrap: wrap;
+    background: repeating-linear-gradient(white, white 180px, #8c6b18 180px, #8c6b18 190px);
 `;
 
 const Book = styled.div`
-    padding: 5px;
+    vertical-align: middle;
+    background: rgba(calc(233 + ${props => (props.color)}), calc(72 + ${props => (props.color)}), calc(131 + ${props => (props.color)}));
+    writing-mode: vertical-rl;
+    margin-right: 3px; margin-bottom: 40px;
+    border-radius: 5px;
+    width: ${props => (props.width)}px;
+    min-width: 30px;
+    padding-top: 5px;
+    height: 150px;
+    transform: rotate(-${props => (props.index === 0 ? "0" : props.rotate)}deg);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    &:hover {
+        -webkit-transform: translateY(-15px);
+        transform: translateY(-15px);
+    }
+}
 `;
 
 const MypagePage = () => {
-    const books = ["http://cdn.news.unn.net/news/photo/202009/234418_119853_441.jpg", "http://cdn.news.unn.net/news/photo/202009/234418_119853_441.jpg", "http://cdn.news.unn.net/news/photo/202009/234418_119853_441.jpg", "http://cdn.news.unn.net/news/photo/202009/234418_119853_441.jpg"];
+    const booksArr = ["펭귄이 귀여워", "하이하이", "하이하이", "책 제목 제목", "펭귄이 귀여워", "하이하이", "책 제목 제목", "펭귄이 귀여워", "하이하이", "책 제목 제목", "펭귄이 귀여워", "하이하이", "책 제목 제목"];
 
     const cookiesUser = new Cookies().get('rememberUser');
     const history = useHistory();
@@ -107,16 +127,23 @@ const MypagePage = () => {
                     <Name>{users[cookiesUser]["userName"]}</Name>
                     <Coment>님의 책장</Coment>
                 </Mp>
-                <SubComent>책장은 {users[cookiesUser]["userName"]}님이 그동안 참여했던 클럽들의 책 이력을 기록한 것입니다.</SubComent>
-                <Bookshelf>
+                <SubComent>
+                    책장은 {users[cookiesUser]["userName"]}님이 그동안 참여했던 클럽들의 책 이력을 기록한 것입니다.<br/>
+                    클럽에 참여해서 {users[cookiesUser]["userName"]}님의 책장을 채워주세요!
+                </SubComent>
+                <FlexBooks>
                     {
-                        books.map((book) => 
-                            <Book key={book}>
-                                <img src={book} alt="img" style={{width: "120px"}}/>
-                            </Book>
+                        booksArr.map((book, index) =>
+                            <Book
+                                key={index}
+                                index={index}
+                                rotate={Math.floor((Math.random() * 10) + 0)}
+                                color={Math.floor((Math.random() * 150) + 0)}
+                                width={Math.floor((Math.random() * 31) + 30)}
+                            >{book}</Book>
                         )
                     }
-                </Bookshelf>
+                </FlexBooks>
             </div>: 
                 null}
         </MpWrap>
