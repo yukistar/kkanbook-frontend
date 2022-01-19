@@ -1,4 +1,4 @@
-import { SIGNUP_USER, ADD_PARTICIPATE_CLUB, DELETE_PARTICIPATE_CLUB } from "../actions"
+import { SIGNUP_USER, EDIT_USER_NAME, ADD_PARTICIPATE_CLUB, DELETE_PARTICIPATE_CLUB } from "../actions"
 
 const users = (state = {}, action) => {
     switch (action.type) {
@@ -7,15 +7,19 @@ const users = (state = {}, action) => {
             newData[action.userId] = action.user;
             return Object.assign({}, state, newData);
         case ADD_PARTICIPATE_CLUB:
-            const addState = {...state};
-            const addArr = new Set([...addState[action.userId]["participateClubs"], action.clubId]);
-            addState[action.userId]["participateClubs"] = [...addArr];
-            return addState;
+            const addParticipateState = {...state};
+            const addParticipateArr = new Set([...addParticipateState[action.userId]["participateClubs"], action.clubId]);
+            addParticipateState[action.userId]["participateClubs"] = [...addParticipateArr];
+            return addParticipateState;
         case DELETE_PARTICIPATE_CLUB:
-            const deleteState = {...state};
-            const deleteArr = deleteState[action.userId]["participateClubs"].filter((x) => x !== action.clubId);
-            deleteState[action.userId]["participateClubs"] = [...deleteArr];
-            return deleteState;
+            const deleteParticipateState = {...state};
+            const deleteParticipateArr = addParticipateState[action.userId]["participateClubs"].filter((x) => x !== action.clubId);
+            addParticipateState[action.userId]["participateClubs"] = [...deleteParticipateArr];
+            return deleteParticipateState;
+        case EDIT_USER_NAME:
+            const editUserData = {...state};
+            editUserData[action.userId]["userName"] = action.userName;
+            return Object.assign({}, state, editUserData);
         default:
             return state;
       }

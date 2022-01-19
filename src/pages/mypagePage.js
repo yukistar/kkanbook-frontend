@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom"
 import { Cookies } from "react-cookie";
 import { useSelector } from 'react-redux';
 import styled from "@emotion/styled";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import InputGroup from "react-bootstrap/InputGroup";
+import MyInform from "../components/mypageItem/myInfrom";
 
 const MpWrap = styled.div`
     width: 100%;
@@ -34,14 +32,6 @@ const SubComent = styled.div`
     font-size: 0.9rem;
 `;
 
-const PersonalInform = styled.div`
-    margin-top: 10px;
-    margin-bottom: 40px;
-    border-radius: 10px;
-    padding: 10px;
-    border: 1px solid rgba(187, 187, 187, 0.384);
-`;
-
 const FlexBooks = styled.div`
     display: flex;
     padding-top: 30px;
@@ -52,14 +42,14 @@ const FlexBooks = styled.div`
 
 const Book = styled.div`
     vertical-align: middle;
-    background: rgba(calc(233 + ${props => (props.color)}), calc(72 + ${props => (props.color)}), calc(131 + ${props => (props.color)}));
+    background: rgba(calc(227 + ${props => (props.color)}), calc(111 + ${props => (props.color)}), calc(154 + ${props => (props.color)}));
     writing-mode: vertical-rl;
     margin-right: 3px; margin-bottom: 40px;
     border-radius: 5px;
     width: ${props => (props.width)}px;
+    height: 150px;
     min-width: 30px;
     padding-top: 5px;
-    height: 150px;
     transform: rotate(-${props => (props.index === 0 ? "0" : props.rotate)}deg);
     -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
@@ -68,20 +58,21 @@ const Book = styled.div`
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
     &:hover {
-        -webkit-transform: translateY(-15px);
-        transform: translateY(-15px);
+        -webkit-transform: translateY(-20px);
+        transform: translateY(-20px);
+        background: no-repeat center/cover url("http://image.kyobobook.co.kr/images/book/xlarge/898/x9788936445898.jpg");
+        width: 100px;
+        color: rgb(255, 255, 255, 0);
     }
 }
 `;
 
 const MypagePage = () => {
-    const booksArr = ["펭귄이 귀여워", "하이하이", "하이하이", "책 제목 제목", "펭귄이 귀여워", "하이하이", "책 제목 제목", "펭귄이 귀여워", "하이하이", "책 제목 제목", "펭귄이 귀여워", "하이하이", "책 제목 제목"];
+    const booksArr = ["제목제목제목제목", "하이하이", "하이하이", "책 제목 제목", "펭귄이 귀여워", "하이하이", "책 제목 제목", "펭귄이 귀여워", "하이하이", "책 제목 제목", "펭귄이 귀여워", "하이하이", "책 제목 제목"];
 
     const cookiesUser = new Cookies().get('rememberUser');
     const history = useHistory();
     const users = useSelector(state => state.users);
-
-    const [userName, setUserName] = useState("");
 
     useEffect(() => {
         if (cookiesUser === undefined) {
@@ -92,37 +83,7 @@ const MypagePage = () => {
     return (
         <MpWrap>
             {cookiesUser ? <div style={{margin: "0 auto", maxWidth: "800px"}}>
-                <Mp>
-                    <Name>{users[cookiesUser]["userName"]}</Name>
-                    <Coment>님의 마이페이지</Coment>
-                </Mp>
-                <PersonalInform>
-                    <InputGroup className="mb-3">
-                    <Form.Control
-                        rows={1} className="system-font"
-                        placeholder={users[cookiesUser]["userName"]}
-                        value={userName}
-                        onChange={e => setUserName(e.target.value)}
-                    />
-                    <Button 
-                        variant="outline-secondary"
-                        className="basic-button"
-                    >이름 변경</Button>
-
-                    </InputGroup>
-                    <InputGroup className="mb-3">
-                    <Form.Control
-                        rows={1} className="system-font"
-                        placeholder={users[cookiesUser]["userName"]}
-                        value={userName}
-                        onChange={e => setUserName(e.target.value)}
-                    />
-                    <Button 
-                        variant="outline-secondary"
-                        className="basic-button"
-                    >비번 변경</Button>
-                    </InputGroup>
-                </PersonalInform>
+                <MyInform />
                 <Mp>
                     <Name>{users[cookiesUser]["userName"]}</Name>
                     <Coment>님의 책장</Coment>
@@ -134,13 +95,15 @@ const MypagePage = () => {
                 <FlexBooks>
                     {
                         booksArr.map((book, index) =>
+                        <div key={index}>
                             <Book
-                                key={index}
                                 index={index}
                                 rotate={Math.floor((Math.random() * 10) + 0)}
-                                color={Math.floor((Math.random() * 150) + 0)}
+                                color={Math.floor((Math.random() * 100) + 0)}
                                 width={Math.floor((Math.random() * 31) + 30)}
-                            >{book}</Book>
+                                height={Math.floor((Math.random() * 31) + 30)}
+                            >{book.length <= 7 ? book : String(book.substring(0, 7)) + "..."}</Book>
+                        </div>
                         )
                     }
                 </FlexBooks>
