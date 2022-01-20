@@ -41,7 +41,6 @@ const FlexBooks = styled.div`
 `;
 
 const Book = styled.div`
-    vertical-align: middle;
     background: rgba(calc(227 + ${props => (props.color)}), calc(111 + ${props => (props.color)}), calc(154 + ${props => (props.color)}));
     writing-mode: vertical-rl;
     margin-right: 3px; margin-bottom: 40px;
@@ -58,17 +57,14 @@ const Book = styled.div`
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
     &:hover {
-        -webkit-transform: translateY(-20px);
-        transform: translateY(-20px);
-        background: no-repeat center/cover url("http://image.kyobobook.co.kr/images/book/xlarge/898/x9788936445898.jpg");
-        width: 100px;
-        color: rgb(255, 255, 255, 0);
+        -webkit-transform: translateY(-25px);
+        transform: translateY(-25px);
     }
 }
 `;
 
 const MypagePage = () => {
-    const booksArr = ["제목제목제목제목", "하이하이", "하이하이", "책 제목 제목", "펭귄이 귀여워", "하이하이", "책 제목 제목", "펭귄이 귀여워", "하이하이", "책 제목 제목", "펭귄이 귀여워", "하이하이", "책 제목 제목"];
+    const booksArr = ["그냥 하지 말라", "자본주의 대전환", "다른 의견을 가질 권리", "모월모일", "넛지 : 똑똑한 선택을 이끄는 힘(양장본 HardCover)", "When Breath Becomes Air", "그냥 하지 말라", "자본주의 대전환", "다른 의견을 가질 권리", "모월모일", "넛지 : 똑똑한 선택을 이끄는 힘(양장본 HardCover)", "When Breath Becomes Air", "그냥 하지 말라", "자본주의 대전환", "다른 의견을 가질 권리", "모월모일", "넛지 : 똑똑한 선택을 이끄는 힘(양장본 HardCover)", "When Breath Becomes Air"];
 
     const cookiesUser = new Cookies().get('rememberUser');
     const history = useHistory();
@@ -102,7 +98,7 @@ const MypagePage = () => {
                                 color={Math.floor((Math.random() * 100) + 0)}
                                 width={Math.floor((Math.random() * 31) + 30)}
                                 height={Math.floor((Math.random() * 31) + 30)}
-                            >{book.length <= 7 ? book : String(book.substring(0, 7)) + "..."}</Book>
+                            >{book.length <= 9 ? book : String(book.substring(0, 9))}</Book>
                         </div>
                         )
                     }
