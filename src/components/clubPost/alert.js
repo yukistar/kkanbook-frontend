@@ -11,7 +11,7 @@ const Alert = (props) => {
     }
 
     return (
-        <div className="alert">
+        <div>
             <Modal dialogClassName='custom-dialog' show={showAlert} onHide={closeAlert}>
                 <Modal.Body className="modal-text">{props.alertMessage}</Modal.Body>
             </Modal>
