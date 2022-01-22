@@ -38,10 +38,7 @@ const Heart = styled.div`
         -webkit-transform-origin: 100% 100%;
         transform-origin :100% 100%;
     }
-    .
 `;
-
-
 
 const ClubBox = (props) => {
     const history = useHistory();
@@ -93,7 +90,6 @@ const ClubBox = (props) => {
                     }
                     </div>
                 : null}
-
             </Card>
         </div>
     )
