@@ -7,6 +7,7 @@ export const ADD_PARTICIPATE_CLUB = 'ADD_PARTICIPATE_CLUB';
 export const DELETE_PARTICIPATE_CLUB = 'DELETE_PARTICIPATE_CLUB';
 
 export const EDIT_USER_NAME = "EDIT_USER_NAME";
+export const EDIT_USER_PASSWORD = "EDIT_USER_PASSWORD";
 
 let nextId = Math.floor(Math.random() * 10000000);
 
@@ -64,6 +65,14 @@ export const editUserName = (userId, userName) => {
         type: EDIT_USER_NAME,
         userId: userId,
         userName: userName
+    }
+}
+
+export const editUserPassword = (userId, userPassword) => {
+    return {
+        type: EDIT_USER_PASSWORD,
+        userId: userId,
+        userPassword: userPassword
     }
 }
 

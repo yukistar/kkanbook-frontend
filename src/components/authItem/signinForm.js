@@ -47,7 +47,7 @@ const SigninForm = (props) => {
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Control
-                        rows={1} className="system-font" type="password"
+                        rows={1} className="system-font" type="password" autoComplete="on"
                         placeholder="Password"
                         value={userPassword}
                         onChange={e => setUserPassword(e.target.value)}

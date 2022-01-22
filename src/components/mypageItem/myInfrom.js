@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { Cookies } from "react-cookie";
 import { useSelector, useDispatch } from 'react-redux';
 
-import { editUserName } from "../../actions/index";
+import { editUserName, editUserPassword } from "../../actions/index";
 import styled from "@emotion/styled";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
+import Alert from "../clubPost/alert"
 
 const Mp = styled.div`
     margin-top: 20px;
@@ -39,7 +40,7 @@ const MyInform = () => {
     const dispatch = useDispatch();
 
     const [newUserName, setNewUserName] = useState("");
-
+    const [alertMessage, setAlertMessage] = useState("");
     const [editPasswordDiv, setEditPasswordDiv] = useState(false);
     const [currentPassword, setCurrentPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
@@ -50,7 +51,18 @@ const MyInform = () => {
     }
 
     const clickedEditPasswordBtn = (e) => {
-        setEditPasswordDiv(false);
+        if (currentPassword === users[cookiesUser]["userPassword"]) {
+            if (newPassword !== "" && newPassword === checkNewPassword) {
+                dispatch(editUserPassword(cookiesUser, newPassword), []);
+                setAlertMessage("비밀번호 변경이 완료되었습니다.");
+                setEditPasswordDiv(false);
+                setCurrentPassword(""); setNewPassword(""); setcheckNewPassword("");
+            } else {
+                setAlertMessage("새 비밀번호가 일치하지 않습니다.");
+            }
+        } else {
+            setAlertMessage("현재 비밀번호가 일치하지 않습니다.");
+        }
     }
 
     return (
@@ -75,22 +87,22 @@ const MyInform = () => {
                     >이름 변경</Button>
                 </InputGroup>
             {editPasswordDiv ? 
-                <div>
+                <Form>
                     <Form.Control
-                        rows={1} className="system-font" type="password"
+                        rows={1} className="system-font" type="password" autoComplete="on"
                         placeholder="현재 비밀번호"
                         value={currentPassword}
                         onChange={e => setCurrentPassword(e.target.value)}
                     />
                     <Form.Control
-                        rows={1} className="system-font" type="password"
+                        rows={1} className="system-font" type="password" autoComplete="on"
                         placeholder="새 비밀번호"
                         value={newPassword}
                         onChange={e => setNewPassword(e.target.value)}
                     />
                     <Form.Group className="mb-3">
                         <Form.Control
-                            rows={1} className="system-font" type="password"
+                            rows={1} className="system-font" type="password" autoComplete="on"
                             placeholder="새 비밀번호 확인"
                             value={checkNewPassword}
                             onChange={e => setcheckNewPassword(e.target.value)}
@@ -108,7 +120,7 @@ const MyInform = () => {
                             onClick={clickedEditPasswordBtn}
                         >비밀번호 변경</Button>
                     </div>
-                </div>
+                </Form>
             :
                 <div style={{textAlign: "center", marginBottom: "0px"}}>
                     <Button 
@@ -118,6 +130,9 @@ const MyInform = () => {
                 </div>
             }
             </PersonalInform>
+            {alertMessage !== "" ? 
+                <Alert showAlert={true} alertMessage={alertMessage} setAlertMessage={setAlertMessage} /> 
+            : null}
         </> 
         : null}
     </div>
