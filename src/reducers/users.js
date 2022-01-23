@@ -14,8 +14,8 @@ const users = (state = {}, action) => {
             return addParticipateState;
         case DELETE_PARTICIPATE_CLUB:
             const deleteParticipateState = {...state};
-            const deleteParticipateArr = addParticipateState[action.userId]["participateClubs"].filter((x) => x !== action.clubId);
-            addParticipateState[action.userId]["participateClubs"] = [...deleteParticipateArr];
+            const deleteParticipateArr = deleteParticipateState[action.userId]["participateClubs"].filter((x) => x !== action.clubId);
+            deleteParticipateState[action.userId]["participateClubs"] = [...deleteParticipateArr];
             return deleteParticipateState;
         case EDIT_USER_NAME:
             const editUserNameData = {...state};

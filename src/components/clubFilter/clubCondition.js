@@ -20,7 +20,7 @@ const ClubCondition = (props) => {
 
     const coditionInit = () => {
         let cleanPickedDays = Array.from({length: 7}, () => true);
-        let cleanPickedKinds = Array.from({length: 10}, () => true);
+        let cleanPickedKinds = Array.from({length: 11}, () => true);
 
         props.setPickedDays(cleanPickedDays);
         props.setPickedKinds(cleanPickedKinds);
@@ -122,6 +122,11 @@ const ClubCondition = (props) => {
                             <Form.Check 
                                 type='checkbox' id='9' label='역사'
                                 checked={props.pickedKinds[9]}
+                                onChange={handleCheckKinds}
+                            />
+                            <Form.Check 
+                                type='checkbox' id='10' label='미분류'
+                                checked={props.pickedKinds[10]}
                                 onChange={handleCheckKinds}
                             />
                         </Form>

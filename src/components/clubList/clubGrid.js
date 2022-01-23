@@ -7,7 +7,7 @@ import "./clubList.css"
 
 const ClubList = (props) => {
     let days = ["월", "화", "수", "목", "금", "토", "일"];
-    let Kinds = ["총류", "철학", "종교", "사회과학", "순수과학", "기술과학", "예술", "언어", "문학", "역사"];
+    let Kinds = ["총류", "철학", "종교", "사회과학", "순수과학", "기술과학", "예술", "언어", "문학", "역사", "미분류"];
 
     function sort(obj, valSelector) {
         const sortedEntries = Object.entries(obj)

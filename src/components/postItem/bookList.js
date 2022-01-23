@@ -22,8 +22,9 @@ const BookList = (props) => {
             const kdc_name_1s = item.getElementsByTagName("kdc_name_1s")[0].innerHTML; //"<!--[CDATA[문학]]-->"
             const kdc = kdc_name_1s.split("[")[2].slice(0, -5);
             props.setBookKind(kdc);
+            console.log(kdc)
         } catch (error) {
-            console.log(error);
+            props.setBookKind("미분류");
         }
     }
 
