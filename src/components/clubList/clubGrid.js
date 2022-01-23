@@ -7,7 +7,7 @@ import "./clubList.css"
 
 const ClubList = (props) => {
     let days = ["월", "화", "수", "목", "금", "토", "일"];
-    let kdcs = ["총류", "철학", "종교", "사회과학", "순수과학", "기술과학", "예술", "언어", "문학", "역사"];
+    let Kinds = ["총류", "철학", "종교", "사회과학", "순수과학", "기술과학", "예술", "언어", "문학", "역사"];
 
     function sort(obj, valSelector) {
         const sortedEntries = Object.entries(obj)
@@ -26,7 +26,7 @@ const ClubList = (props) => {
             <Container>
                 <Row lg={4}>
                     {sortedObj && Object.entries(sortedObj).map(([key, value]) => (
-                        props.pickedDays[days.indexOf(value.clubTime[12])] && props.pickedKdcs[kdcs.indexOf(value.bookKdc)] 
+                        props.pickedDays[days.indexOf(value.clubTime[12])] && props.pickedKinds[Kinds.indexOf(value.bookKind)] 
                         && (value.clubTitle.includes(props.searchKeyword) || value.clubDescription.includes(props.searchKeyword) || value.bookTitle.includes(props.searchKeyword))?
                         <Col key={key}>
                             <ClubBox 

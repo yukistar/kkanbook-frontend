@@ -61,7 +61,7 @@ const BookSearch = (props) => {
                     bookTitle={props.bookTitle} searchBookList={searchBookList}
                     setBookTitle={props.setBookTitle} 
                     setBookImage={props.setBookImage}
-                    setBookKdc={props.setBookKdc}
+                    setBookKind={props.setBookKind}
                     setShowBookList={setShowBookList}
                 /> 
                 : null}

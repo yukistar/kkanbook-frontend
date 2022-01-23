@@ -12,18 +12,18 @@ const ClubCondition = (props) => {
         props.setPickedDays(daysArr);
     }
 
-    const handleCheckKdcs = (e) => {
-        let kdcsArr = [...props.pickedKdcs];
-        kdcsArr[Number(e.target.id)] = !kdcsArr[Number(e.target.id)];
-        props.setPickedKdcs(kdcsArr);
+    const handleCheckKinds = (e) => {
+        let KindsArr = [...props.pickedKinds];
+        KindsArr[Number(e.target.id)] = !KindsArr[Number(e.target.id)];
+        props.setPickedKinds(KindsArr);
     }
 
     const coditionInit = () => {
         let cleanPickedDays = Array.from({length: 7}, () => true);
-        let cleanPickedKdcs = Array.from({length: 10}, () => true);
+        let cleanPickedKinds = Array.from({length: 10}, () => true);
 
         props.setPickedDays(cleanPickedDays);
-        props.setPickedKdcs(cleanPickedKdcs);
+        props.setPickedKinds(cleanPickedKinds);
     }
 
     return (
@@ -76,53 +76,53 @@ const ClubCondition = (props) => {
                         <Form className="day-checkbox">
                             <Form.Check 
                                 type='checkbox' id='0' label='총류'
-                                checked={props.pickedKdcs[0]}
-                                onChange={handleCheckKdcs}
+                                checked={props.pickedKinds[0]}
+                                onChange={handleCheckKinds}
                             />
                             <Form.Check 
                                 type='checkbox' id='1' label='철학'
-                                checked={props.pickedKdcs[1]}
-                                onChange={handleCheckKdcs}
+                                checked={props.pickedKinds[1]}
+                                onChange={handleCheckKinds}
                             />
                             <Form.Check 
                                 type='checkbox' id='2' label='종교'
-                                checked={props.pickedKdcs[2]}
-                                onChange={handleCheckKdcs}
+                                checked={props.pickedKinds[2]}
+                                onChange={handleCheckKinds}
                             />
                             <Form.Check 
                                 type='checkbox' id='3' label='사회과학'
-                                checked={props.pickedKdcs[3]}
-                                onChange={handleCheckKdcs}
+                                checked={props.pickedKinds[3]}
+                                onChange={handleCheckKinds}
                             />
                             <Form.Check 
                                 type='checkbox' id='4' label='순수과학'
-                                checked={props.pickedKdcs[4]}
-                                onChange={handleCheckKdcs}
+                                checked={props.pickedKinds[4]}
+                                onChange={handleCheckKinds}
                             />
                             <Form.Check 
                                 type='checkbox' id='5' label='기술과학'
-                                checked={props.pickedKdcs[5]}
-                                onChange={handleCheckKdcs}
+                                checked={props.pickedKinds[5]}
+                                onChange={handleCheckKinds}
                             />
                             <Form.Check 
                                 type='checkbox' id='6' label='예술'
-                                checked={props.pickedKdcs[6]}
-                                onChange={handleCheckKdcs}
+                                checked={props.pickedKinds[6]}
+                                onChange={handleCheckKinds}
                             />
                             <Form.Check 
                                 type='checkbox' id='7' label='언어'
-                                checked={props.pickedKdcs[7]}
-                                onChange={handleCheckKdcs}
+                                checked={props.pickedKinds[7]}
+                                onChange={handleCheckKinds}
                             />
                             <Form.Check 
                                 type='checkbox' id='8' label='문학'
-                                checked={props.pickedKdcs[8]}
-                                onChange={handleCheckKdcs}
+                                checked={props.pickedKinds[8]}
+                                onChange={handleCheckKinds}
                             />
                             <Form.Check 
                                 type='checkbox' id='9' label='역사'
-                                checked={props.pickedKdcs[9]}
-                                onChange={handleCheckKdcs}
+                                checked={props.pickedKinds[9]}
+                                onChange={handleCheckKinds}
                             />
                         </Form>
                     </Dropdown.Menu>

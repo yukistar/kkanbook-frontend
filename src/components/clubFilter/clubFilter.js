@@ -12,7 +12,7 @@ const ClubFilter = (props) => {
                 />
                 <ClubCondition
                     pickedDays={props.pickedDays} setPickedDays={props.setPickedDays}
-                    pickedKdcs={props.pickedKdcs} setPickedKdcs={props.setPickedKdcs}
+                    pickedKinds={props.pickedKinds} setPickedKinds={props.setPickedKinds}
                 />
             </div>
         </div>

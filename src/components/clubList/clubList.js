@@ -13,7 +13,7 @@ const ClubList = (props) => {
             <ClubPost />
             <ClubGrid 
                 clubs={clubs}
-                pickedDays={props.pickedDays} pickedKdcs={props.pickedKdcs} searchKeyword={props.searchKeyword}
+                pickedDays={props.pickedDays} pickedKinds={props.pickedKinds} searchKeyword={props.searchKeyword}
             />
         </div>
     )

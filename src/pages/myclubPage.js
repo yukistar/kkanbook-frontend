@@ -23,7 +23,7 @@ const Coment = styled.div`
 
 const MyclubPage = () => {
     const [pickedDays] = useState(Array.from({length: 7}, () => true));
-    const [pickedKdcs] = useState(Array.from({length: 10}, () => true));
+    const [pickedKinds] = useState(Array.from({length: 10}, () => true));
     const [searchKeyword] = useState("");
     const [myParticipateClbs, setMyParticipateClubs] = useState({});
 
@@ -62,7 +62,7 @@ const MyclubPage = () => {
                 null}
             <ClubGrid 
                 clubs={myParticipateClbs}
-                pickedDays={pickedDays} pickedKdcs={pickedKdcs} searchKeyword={searchKeyword}
+                pickedDays={pickedDays} pickedKinds={pickedKinds} searchKeyword={searchKeyword}
             />
         </div>
     )

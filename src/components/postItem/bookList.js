@@ -21,7 +21,7 @@ const BookList = (props) => {
             const item = xmlDoc.getElementsByTagName("item")[0]
             const kdc_name_1s = item.getElementsByTagName("kdc_name_1s")[0].innerHTML; //"<!--[CDATA[문학]]-->"
             const kdc = kdc_name_1s.split("[")[2].slice(0, -5);
-            props.setBookKdc(kdc);
+            props.setBookKind(kdc);
         } catch (error) {
             console.log(error);
         }
