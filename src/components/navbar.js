@@ -155,6 +155,7 @@ const Navbar = () => {
 
     useEffect(() => {
       if (history.location.pathname === "/main") { setMenuFocus(1); }
+      else if (history.location.pathname.includes("/detail")) { setMenuFocus(1); }
       else if (history.location.pathname === "/myclub") { setMenuFocus(2); }
       else if (history.location.pathname === "/mypage") { setMenuFocus(3); }
     }, [history.location.pathname]);

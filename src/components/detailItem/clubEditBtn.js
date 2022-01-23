@@ -13,11 +13,11 @@ const ClubEditBtn = () => {
     }
 
     return (
-        <div className="club-edit-btn">
+        <div className="club-edit-btn" style={{marginRight: "5px"}}>
             <Button 
                 variant="outline-secondary"
                 size="sm"
-                className="delete-button"
+                className="basic-button"
                 onClick={clickedEditBtn}
             >수정</Button>
         </div>

@@ -1,16 +1,20 @@
 import React from "react";
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Cookies } from "react-cookie";
 import { FaBook, FaCalendarAlt } from 'react-icons/fa';
 
 import CountDown from "../detailItem/countDown";
 import ClubChatBtn from "../detailItem/clubChatBtn";
+import ClubDeleteBtn from "../detailItem/clubDeleteBtn";
+import ClubEditBtn from "../detailItem/clubEditBtn";
 import ClubBook from "./clubBook";
 import "./clubDetail.css"
 
 const ClubDetail = () => {
     const clubs = useSelector(state => state.clubs);
     const { id } = useParams();
+    const cookiesUser = new Cookies().get('rememberUser');
 
     let now = new Date(); // 현재시간
     let clubStartStr = clubs[id].clubTime.substring(0, 10) + " " + clubs[id].clubTime.substring(15, 20) + ":00";
@@ -40,6 +44,13 @@ const ClubDetail = () => {
                 {interval <= 0 ?
                     <ClubChatBtn />
                     : <CountDown hoursMinSecs={hoursMinSecs}/>
+                }
+                {interval > 3600000 && cookiesUser && clubs[id].clubCreator === cookiesUser ?
+                    <div style={{display: "flex", marginTop: "30px", float: "right"}}>
+                        <ClubEditBtn />
+                        <ClubDeleteBtn />
+                    </div>
+                : null
                 }
             </div>
         </div>

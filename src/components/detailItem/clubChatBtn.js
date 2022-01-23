@@ -29,6 +29,7 @@ const ClubChatBtn = () => {
             <Button 
                 variant="outline-secondary"
                 size="sm"
+                className="basic-button"
                 onClick={clickedChatBtn}
             >채팅</Button>
         </div>

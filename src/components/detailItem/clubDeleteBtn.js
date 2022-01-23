@@ -41,7 +41,7 @@ const ClubDeleteBtn = () => {
             <Button 
                 variant="outline-secondary"
                 size="sm"
-                className="delete-button"
+                className="basic-button"
                 onClick={showDeleteConfirm}
             >삭제</Button>
             <Modal dialogClassName='custom-dialog' show={deleteConfirm} onHide={closeDeleteConfirm}>
