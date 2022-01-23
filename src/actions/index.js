@@ -11,7 +11,7 @@ export const EDIT_USER_PASSWORD = "EDIT_USER_PASSWORD";
 
 let nextId = Math.floor(Math.random() * 10000000);
 
-export const addClub = (clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKdc) => {
+export const addClub = (clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKind, clubCreator) => {
     return {
         type: ADD_CLUB,
         clubId: "club" + String(nextId++),
@@ -21,7 +21,8 @@ export const addClub = (clubTitle, clubDescription, bookTitle, clubTime, bookIma
             bookTitle,
             clubTime,
             bookImage,
-            bookKdc
+            bookKind,
+            clubCreator
         }
     };
 }
@@ -33,7 +34,7 @@ export const deleteClub = (clubId) => {
     }
 }
 
-export const editClub = (clubId, clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKdc) => {
+export const editClub = (clubId, clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKind, clubCreator) => {
     return {
         type: EDIT_CLUB,
         clubId: clubId,
@@ -43,7 +44,8 @@ export const editClub = (clubId, clubTitle, clubDescription, bookTitle, clubTime
             bookTitle,
             clubTime,
             bookImage,
-            bookKdc
+            bookKind,
+            clubCreator
         }
     };
 }

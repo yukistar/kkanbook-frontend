@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams, useHistory } from "react-router-dom"
 import { useSelector } from 'react-redux';
+import { Cookies } from "react-cookie";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import BookSearch from "../postItem/bookSearch";
@@ -15,13 +16,14 @@ const EditForm = () => {
     const { id } = useParams();
     const history = useHistory();
     const clubs = useSelector(state => state.clubs);
+    const cookiesUser = new Cookies().get('rememberUser');
 
     const [newClubTitle, setNewClubTitle] = useState(clubs[id].clubTitle);
     const [newClubDescription, setNewClubDescription] = useState(clubs[id].clubDescription);
     const [newBookTitle, setNewBookTitle] = useState(clubs[id].bookTitle);
     const [newClubTime, setNewClubTime] = useState(clubs[id].clubTime);
     const [newBookImage, setNewBookImage] = useState(clubs[id].bookImage);
-    const [newBookKdc, setNewBookKdc] = useState(clubs[id].bookKdc);
+    const [newBookKind, setNewBookKind] = useState(clubs[id].bookKind);
     const [newSearchCheck, setNewSearchCheck] = useState(true);
     const [alertMessage, setAlertMessage] = useState("");
 
@@ -33,7 +35,7 @@ const EditForm = () => {
         } else if (newSearchCheck === false) {
             setAlertMessage("책을 검색하여 선택해주세요.");
         } else {
-            dispatch(editClub(id, newClubTitle, newClubDescription, newBookTitle, newClubTime, newBookImage, newBookKdc));
+            dispatch(editClub(id, newClubTitle, newClubDescription, newBookTitle, newClubTime, newBookImage, newBookKind, cookiesUser));
             history.replace("/detail/" + id);
         }
     }
@@ -62,7 +64,7 @@ const EditForm = () => {
                         <BookSearch 
                             bookTitle={newBookTitle} setBookTitle={setNewBookTitle}
                             bookImage={newBookImage} setBookImage={setNewBookImage}
-                            bookKdc={newBookKdc} setBookKdc={setNewBookKdc}
+                            bookKind={newBookKind} setBookKind={setNewBookKind}
                             searchCheck={newSearchCheck} setSearchCheck={setNewSearchCheck}
                         />
                     </Form.Group>

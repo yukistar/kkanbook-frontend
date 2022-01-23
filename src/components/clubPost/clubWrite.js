@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom"
+import { Cookies } from "react-cookie";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import BookSearch from "../postItem/bookSearch";
@@ -12,20 +13,21 @@ import { addClub } from "../../actions/index";
 
 const ClubWrite = () => {
     const history = useHistory();
+    const cookiesUser = new Cookies().get('rememberUser');
 
     const [clubTitle, setClubTitle] = useState("");
     const [clubDescription, setClubDescription] = useState("");
     const [bookTitle, setBookTitle] = useState("");
     const [clubTime, setClubTime] = useState(null);
     const [bookImage, setBookImage] = useState("");
-    const [bookKdc, setBookKdc] = useState("");
+    const [bookKind, setBookKind] = useState("");
     const [searchCheck, setSearchCheck] = useState(false);
     const [alertMessage, setAlertMessage] = useState("");
 
     const dispatch = useDispatch();
   
-    const onCreate = (clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKdc) => {
-        dispatch(addClub(clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKdc));
+    const onCreate = (clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKind, clubCreator) => {
+        dispatch(addClub(clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKind, clubCreator));
     }
 
     const handleSubmit = (event) => {
@@ -34,7 +36,7 @@ const ClubWrite = () => {
         } else if (searchCheck === false) {
             setAlertMessage("책을 검색하여 선택해주세요.");
         } else {
-            onCreate(clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKdc);
+            onCreate(clubTitle, clubDescription, bookTitle, clubTime, bookImage, bookKind, cookiesUser);
             history.replace("/main");
         }
     };
@@ -64,7 +66,7 @@ const ClubWrite = () => {
                         <BookSearch
                             bookTitle={bookTitle} setBookTitle={setBookTitle}
                             bookImage={bookImage} setBookImage={setBookImage}
-                            bookKdc={bookKdc} setBookKdc={setBookKdc}
+                            bookKind={bookKind} setBookKind={setBookKind}
                             searchCheck={searchCheck} setSearchCheck={setSearchCheck}
                         />
                     </Form.Group>
