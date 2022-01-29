@@ -18,7 +18,12 @@ const ClubChatBtn = () => {
             history.push({
                 pathname: "/chat", 
                 search: `?name=${users[cookiesUser].userName}&room=${clubs[id].clubTitle}`, 
-                state: {bookImage: clubs[id].bookImage, bookTitle: clubs[id].bookTitle, clubTime: clubs[id].clubTime}
+                state: {
+                    bookImage: clubs[id].bookImage,
+                    bookTitle: clubs[id].bookTitle,
+                    clubTime: clubs[id].clubTime,
+                    clubCreator: clubs[id].clubCreator
+                }
             }) 
         :
             history.push({pathname: "/signin", state: {history: history.location.pathname}});

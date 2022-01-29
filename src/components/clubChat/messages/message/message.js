@@ -1,7 +1,15 @@
+import { useHistory } from "react-router-dom"
 import './message.css'
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
 const Message = ({ message: { user, text }, name }) => {
-  let isSentByCurrentUser = false
+  const history = useHistory();
+  let isSentByCurrentUser = false;
+
+  const clickedClearRoom = (e) => {
+    history.replace("/main");
+  }
 
   const trimName = name.trim().toLowerCase()
 
@@ -19,10 +27,19 @@ const Message = ({ message: { user, text }, name }) => {
       </div>
     </div>
   ) : (
-    user === "admin" ?
-    <div className="message-text admin-text color-white">
-      {text}
-    </div> 
+    user === "admin" ? (
+      text === "채팅이 종료되었습니다" ?
+        <Modal dialogClassName='custom-dialog' show={true}>
+          <Modal.Body className="modal-text">클럽장에 의해 채팅이 종료되었습니다.</Modal.Body>
+          <div style={{margin: "0 auto", marginTop: "-15px", marginBottom: "15px"}}>
+            <Button className="delete-custom" onClick={clickedClearRoom}>확인</Button>
+          </div>
+        </Modal>
+      :    
+        <div className="message-text admin-text color-white">
+          {text}
+        </div> 
+    )
     :
     <div className="message-container justify-start">
       <div className="message-box background-light">

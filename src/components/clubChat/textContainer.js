@@ -15,7 +15,12 @@ const TextContainer = (props) => {
         <div className="active-container">
           {props.users.map(({ name }) => (
             <div key={name} className="active-item">
-              {name}
+              {name} 
+              {
+                props.cookiesUser && props.cookiesUser === props.clubCreator ?  
+                <div className="club-creator">클럽장</div>
+                : null 
+              }
             </div>
             ))}
         </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import queryString from 'query-string'
 import { socket } from '../properties/socket'
+import { Cookies } from "react-cookie";
 
 import InfoBar from '../components/clubChat/infoBar'
 import Input from '../components/clubChat/input'
@@ -15,6 +16,7 @@ const ChatPage = ({ location }) => {
   const [message, setMessage] = useState('')
   const [messages, setMessages] = useState([])
   const [users, setUsers] = useState('');
+  const cookiesUser = new Cookies().get('rememberUser');
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search)
@@ -55,10 +57,23 @@ const ChatPage = ({ location }) => {
     setMessage('')
   }
 
+  const clear = () => {
+    if (room) {
+      socket.emit('clearRoom', room, () =>
+      clear('')
+      )
+    }
+  }
+
   return (
     <div className="container-wrapper">
       <div className="chat-container">
-        <InfoBar room={room} />
+        <InfoBar 
+          room={room} 
+          clubCreator={location.state.clubCreator}
+          cookiesUser={cookiesUser}
+          clear={clear}
+        />
         <Messages messages={messages} name={name} />
         <Input
           message={message}
@@ -66,11 +81,13 @@ const ChatPage = ({ location }) => {
           sendMessage={sendMessage}
         />
       </div>
-      <TextContainer 
+      <TextContainer
+        cookiesUser={cookiesUser}
         users={users}
         bookImage={location.state.bookImage}
         bookTitle={location.state.bookTitle}
         clubTime={location.state.clubTime}
+        clubCreator={location.state.clubCreator}
       />
     </div>
   )
