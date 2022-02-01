@@ -19,6 +19,7 @@ const ClubChatBtn = () => {
                 pathname: "/chat", 
                 search: `?name=${users[cookiesUser].userName}&room=${clubs[id].clubTitle}`, 
                 state: {
+                    clubId: id,
                     bookImage: clubs[id].bookImage,
                     bookTitle: clubs[id].bookTitle,
                     clubTime: clubs[id].clubTime,

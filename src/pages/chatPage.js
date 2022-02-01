@@ -68,8 +68,9 @@ const ChatPage = ({ location }) => {
   return (
     <div className="container-wrapper">
       <div className="chat-container">
-        <InfoBar 
+        <InfoBar
           room={room} 
+          clubId={location.state.clubId}
           clubCreator={location.state.clubCreator}
           cookiesUser={cookiesUser}
           clear={clear}
