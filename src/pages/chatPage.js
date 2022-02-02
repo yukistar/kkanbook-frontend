@@ -16,6 +16,7 @@ const ChatPage = ({ location }) => {
   const [message, setMessage] = useState('')
   const [messages, setMessages] = useState([])
   const [users, setUsers] = useState('');
+  const [notice, setNotice] = useState('');
   const cookiesUser = new Cookies().get('rememberUser');
 
   useEffect(() => {
@@ -44,7 +45,29 @@ const ChatPage = ({ location }) => {
     socket.on("roomData", ({ users }) => {
       setUsers(users);
     })
+
+    socket.on("noticeMessage", (notice) => {
+      setNotice(notice.text);
+    })
   }, [])
+
+  const sendNotice = (event) => {
+    event.preventDefault()
+
+    if (notice) {
+      socket.emit('sendNotice', notice, () =>
+        setNotice(notice)
+      )
+    }
+  }
+
+  const clear = () => {
+    if (room) {
+      socket.emit('clearRoom', room, () =>
+      clear('')
+      )
+    }
+  }
 
   const sendMessage = (event) => {
     event.preventDefault()
@@ -57,14 +80,6 @@ const ChatPage = ({ location }) => {
     setMessage('')
   }
 
-  const clear = () => {
-    if (room) {
-      socket.emit('clearRoom', room, () =>
-      clear('')
-      )
-    }
-  }
-
   return (
     <div className="container-wrapper">
       <div className="chat-container">
@@ -75,7 +90,10 @@ const ChatPage = ({ location }) => {
           cookiesUser={cookiesUser}
           clear={clear}
         />
-        <Messages messages={messages} name={name} />
+        <Messages 
+          messages={messages} name={name} 
+          notice={notice} setNotice={setNotice} sendNotice={sendNotice}
+        />
         <Input
           message={message}
           setMessage={setMessage}

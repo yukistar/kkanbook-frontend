@@ -37,6 +37,16 @@
     font-size: 15pt;
     border-radius: 13px 13px 0px 0px;
 }
+
+.notice-bar {
+    background-color: rgba(255, 255, 255, 0.863);
+    border-radius: 15px;
+    color: var(--main-color);
+    font-size: 11pt;
+    width: 99%;
+    position : absolute;
+    top : 5px;
+}
   
 .form {
     position: relative;
