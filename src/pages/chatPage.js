@@ -93,6 +93,7 @@ const ChatPage = ({ location }) => {
         <Messages 
           messages={messages} name={name} 
           notice={notice} setNotice={setNotice} sendNotice={sendNotice}
+          cookiesUser={cookiesUser} bookTitle={location.state.bookTitle}
         />
         <Input
           message={message}

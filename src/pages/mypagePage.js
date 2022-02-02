@@ -64,8 +64,6 @@ const Book = styled.div`
 `;
 
 const MypagePage = () => {
-    const booksArr = ["그냥 하지 말라", "자본주의 대전환", "다른 의견을 가질 권리", "모월모일", "넛지 : 똑똑한 선택을 이끄는 힘(양장본 HardCover)", "When Breath Becomes Air", "그냥 하지 말라", "자본주의 대전환", "다른 의견을 가질 권리", "모월모일", "넛지 : 똑똑한 선택을 이끄는 힘(양장본 HardCover)", "When Breath Becomes Air", "그냥 하지 말라", "자본주의 대전환", "다른 의견을 가질 권리", "모월모일", "넛지 : 똑똑한 선택을 이끄는 힘(양장본 HardCover)", "When Breath Becomes Air"];
-
     const cookiesUser = new Cookies().get('rememberUser');
     const history = useHistory();
     const users = useSelector(state => state.users);
@@ -90,7 +88,7 @@ const MypagePage = () => {
                 </SubComent>
                 <FlexBooks>
                     {
-                        booksArr.map((book, index) =>
+                        users[cookiesUser]["userBookshelf"].map((book, index) =>
                         <div key={index}>
                             <Book
                                 index={index}

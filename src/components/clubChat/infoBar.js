@@ -1,7 +1,7 @@
 import './clubChat.css'
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
-import { deleteClub } from "../../actions/index";
+import { deleteClub, deleteParticipateClub } from "../../actions/index";
 import CloseButton from "react-bootstrap/CloseButton";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -17,6 +17,7 @@ const InfoBar = (props) => {
     props.clear();
     closeClearConfirm();
     dispatch(deleteClub(props.clubId), [dispatch]);
+    dispatch(deleteParticipateClub(props.cookiesUser, props.clubId));
   }
 
   const confirmButtonRight = {

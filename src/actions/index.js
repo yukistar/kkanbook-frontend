@@ -8,6 +8,7 @@ export const DELETE_PARTICIPATE_CLUB = 'DELETE_PARTICIPATE_CLUB';
 
 export const EDIT_USER_NAME = "EDIT_USER_NAME";
 export const EDIT_USER_PASSWORD = "EDIT_USER_PASSWORD";
+export const ADD_BOOKSHELF = 'ADD_BOOKSHELF';
 
 let nextId = Math.floor(Math.random() * 10000000);
 
@@ -50,14 +51,15 @@ export const editClub = (clubId, clubTitle, clubDescription, bookTitle, clubTime
     };
 }
 
-export const signupUser = (userId, userPassword, userName, participateClubs) => {
+export const signupUser = (userId, userPassword, userName, participateClubs, userBookshelf) => {
     return {
         type: SIGNUP_USER,
         userId: userId,
         user: {
             userPassword,
             userName,
-            participateClubs
+            participateClubs,
+            userBookshelf
         }
     };
 }
@@ -75,6 +77,14 @@ export const editUserPassword = (userId, userPassword) => {
         type: EDIT_USER_PASSWORD,
         userId: userId,
         userPassword: userPassword
+    }
+}
+
+export const addBookshelf = (userId, bookTitle) => {
+    return {
+        type: ADD_BOOKSHELF,
+        userId: userId,
+        bookTitle: bookTitle
     }
 }
 

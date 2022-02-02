@@ -1,4 +1,4 @@
-import { SIGNUP_USER, EDIT_USER_NAME, EDIT_USER_PASSWORD,
+import { SIGNUP_USER, EDIT_USER_NAME, EDIT_USER_PASSWORD, ADD_BOOKSHELF,
          ADD_PARTICIPATE_CLUB, DELETE_PARTICIPATE_CLUB } from "../actions"
 
 const users = (state = {}, action) => {
@@ -25,6 +25,11 @@ const users = (state = {}, action) => {
             const editUserPasswordData = {...state};
             editUserPasswordData[action.userId]["userPassword"] = action.userPassword;
             return Object.assign({}, state, editUserPasswordData);
+        case ADD_BOOKSHELF:
+            const addBookshelfState = {...state};
+            const addBookshelfArr = new Set([...addBookshelfState[action.userId]["userBookshelf"], action.bookTitle]);
+            addBookshelfState[action.userId]["userBookshelf"] = [...addBookshelfArr];
+            return addBookshelfState;
         default:
             return state;
       }

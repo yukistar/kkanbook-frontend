@@ -2,13 +2,17 @@ import { useHistory } from "react-router-dom"
 import './message.css'
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { useDispatch } from 'react-redux';
+import { addBookshelf } from "../../../../actions/index";
 
-const Message = ({ message: { user, text }, name }) => {
+const Message = ({ message: { user, text }, name, cookiesUser, bookTitle }) => {
   const history = useHistory();
+  const dispatch = useDispatch();
   let isSentByCurrentUser = false;
 
   const clickedClearRoom = (e) => {
     history.replace("/main");
+    dispatch(addBookshelf(cookiesUser, bookTitle));
   }
 
   const trimName = name.trim().toLowerCase()
