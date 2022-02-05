@@ -7,7 +7,6 @@ import kakaoKey from "../../properties/kakaoKey";
 import { useDispatch } from 'react-redux';
 import { addParticipateClub, deleteParticipateClub } from "../../actions/index";
 
-import Alert from "../clubPost/alert"
 import styled from "@emotion/styled";
 import "./clubDetail.css"
 
@@ -54,20 +53,14 @@ const ClubBook = (props) => {
     const cookiesUser = new Cookies().get('rememberUser');
     const users = useSelector(state => state.users);
 
-    const [alertMessage, setAlertMessage] = useState("");
-
     const clickedParticipateBtn = (e) => {
         if (cookiesUser !== undefined) {
             if (users[cookiesUser]["participateClubs"].includes(id)) {
                 dispatch(deleteParticipateClub(cookiesUser, id));
-                setAlertMessage("참여 취소가 완료되었습니다.");
             }
             else {
                 dispatch(addParticipateClub(cookiesUser, id));
-                setAlertMessage("참여 예약이 완료되었습니다.");
             }
-        }
-        else {
         }
         e.stopPropagation();
     }
@@ -115,9 +108,6 @@ const ClubBook = (props) => {
                     </div>
                 </div>
             </div>
-            {alertMessage !== "" ? 
-                <Alert showAlert={true} alertMessage={alertMessage} setAlertMessage={setAlertMessage} /> 
-            : null}
         </div>
     )
 }

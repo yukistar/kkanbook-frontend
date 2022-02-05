@@ -77,14 +77,22 @@ const ItemBox = styled.li`
     display: flex;
     flex-direction: column;
     border: 1px solid rgba(187, 187, 187, 0.384);
+
 `;
 
 const ItemTitle = styled.h4`
     margin-bottom: 2rem;
+    @media (max-width: 1000px) {
+        font-size: 1.2rem;
+    } 
 `;
 
 const ItemDescription = styled.p`
     margin-bottom: 1.5rem;
+    @media (max-width: 1000px) {
+        font-size: 0.9rem;
+    } 
+    
 `;
 
 const Ending = styled.div`

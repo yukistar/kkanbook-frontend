@@ -11,6 +11,7 @@ const NoticeInput = styled.textarea`
     resize: vertical;
     min-height: 40px;
     max-height: 500px;
+    margin-bottom: -6px;
     ::placeholder {
         color: black;
         text-align: center;
