@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import Modal from "react-bootstrap/Modal";
-import Alert from "../clubPost/alert"
+import Alert from "../common/alert"
 import "./authItem.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { signupUser } from "../../actions/index";

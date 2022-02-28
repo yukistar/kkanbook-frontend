@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import { useState, useEffect } from "react";
 
 import "./detailItem.css"
 
@@ -19,7 +19,7 @@ const CountDown = ({hoursMinSecs}) => {
         }
     };
 
-    React.useEffect(() => {
+    useEffect(() => {
         const timerId = setInterval(() => tick(), 1000);
         return () => clearInterval(timerId);
     });

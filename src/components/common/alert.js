@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
-import "./clubPost.css"
 
 const Alert = (props) => {
     const [showAlert, setShowAlert] = useState(props.showAlert);

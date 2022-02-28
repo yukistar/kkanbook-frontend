@@ -4,7 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Alert from "../clubPost/alert"
+import Alert from "../common/alert"
 import "./authItem.css"
 
 const Signin = () => {

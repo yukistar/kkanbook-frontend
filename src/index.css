@@ -33,15 +33,3 @@ html, body {
 ::-webkit-scrollbar-track { 
   background-color: transparent;
 }
-
-.basic-button {
-  background: var(--main-color) !important;
-  border-color: var(--main-color) !important;
-  color: white !important;
-}
-
-.basic-button:hover, .basic-button:focus, .basic-button:active {
-  background: var(--hover-color) !important;
-  border-color: var(--hover-color) !important;
-  box-shadow: var(--shadow-color) !important;
-}
