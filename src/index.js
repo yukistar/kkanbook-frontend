@@ -18,8 +18,8 @@ import MyclubPage from './pages/myclubPage'
 import MypagePage from './pages/mypagePage'
 
 import ScrollToTop from "./hooks/useScrollToTop";
-import Navbar from "./components/navbar";
-import Footer from "./components/footer";
+import Navbar from "./components/common/navbar";
+import Footer from "./components/common/footer";
 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';

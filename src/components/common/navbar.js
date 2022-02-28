@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { Cookies } from "react-cookie";
 
 import styled from "@emotion/styled";
-import "./component.css";
+import "./common.css";
 
 const Nav = styled.nav`
   position: fixed;

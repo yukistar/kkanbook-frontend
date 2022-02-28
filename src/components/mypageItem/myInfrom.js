@@ -7,7 +7,7 @@ import styled from "@emotion/styled";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
-import Alert from "../clubPost/alert"
+import Alert from "../common/alert"
 
 const Mp = styled.div`
     margin-top: 20px;
