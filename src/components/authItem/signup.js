@@ -49,6 +49,11 @@ const Signup = () => {
         return reg.test(Id)
     }
 
+    const CheckPasswordRule = (Password) => {
+        let reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/; // 소문자, 대문자, 숫자 포함 8~자리
+        return reg.test(Password)
+    }
+
     return (
         <div className='auth'>
         <div className='auth-form'>
@@ -92,7 +97,6 @@ const Signup = () => {
                             </div>
                         </>)
                     }
-
                 </Modal>
                 <Form.Group className="mb-3">
                     <Form.Control
@@ -111,7 +115,10 @@ const Signup = () => {
                     />
                 {userPassword !== "" && checkPassword !== "" ?
                     userPassword === checkPassword ?
-                        (<Form.Text className="text-muted">비밀번호가 일치합니다.</Form.Text>)
+                        CheckPasswordRule(userPassword) ?
+                            (<Form.Text className="text-muted">비밀번호가 일치합니다.</Form.Text>)
+                        :
+                            (<Form.Text className="text-muted">대문자, 소문자, 숫자를 포함한 8자리 비밀번호를 만들어주세요.</Form.Text>)
                     :
                         (<Form.Text className="text-muted">비밀번호가 일치하지 않습니다.</Form.Text>)
                 : null}
